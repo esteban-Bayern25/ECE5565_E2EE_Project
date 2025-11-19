@@ -1,370 +1,329 @@
-'use strict'
+'use strict';
 
+// ===== Small on-screen notifier (optional but handy) =====
+function uiNotify(msg, color = '#0f0') {
+  let div = document.getElementById('status');
+  if (!div) {
+    div = document.createElement('div');
+    div.id = 'status';
+    div.style.position = 'fixed';
+    div.style.bottom = '10px';
+    div.style.right = '10px';
+    div.style.background = '#111';
+    div.style.color = color;
+    div.style.padding = '8px 10px';
+    div.style.fontFamily = 'monospace';
+    div.style.fontSize = '13px';
+    div.style.borderRadius = '6px';
+    div.style.zIndex = '9999';
+    document.body.appendChild(div);
+  }
+  div.textContent = msg;
+}
+
+// ===== Events used by index.html =====
 const _EVENTS = {
-    onLeave: 'onLeave',
-    onJoin: 'onJoin',
-    onCreate: 'onCreate',
-    onStreamStarted: 'onStreamStarted',
-    onStreamEnded: 'onStreamEnded',
-    onReady: 'onReady',
-    onScreenShareStopped: 'onScreenShareStopped',
-    exitRoom: 'exitRoom',
-    onConnected: 'onConnected',
-    onRemoteTrack: 'onRemoteTrack',
-    onRemoteSpeaking: 'onRemoteSpeaking',
-    onRemoteStoppedSpeaking: 'onRemoteStoppedSpeaking',
+  onConnected: 'onConnected',
+  onRemoteTrack: 'onRemoteTrack',
 };
 
 class SimpleSFUClient {
-    constructor(options) {
-        const defaultSettings = {
-            port: 8080,
-            configuration: {
-                iceServers: [
-                    { 'urls': 'stun:stun.stunprotocol.org:3478' },
-                    { 'urls': 'stun:stun.l.google.com:19302' },
-                ]
-            }
-        };
+  constructor(options) {
+    const defaultSettings = {
+      port: 8080,
+      configuration: {
+        iceServers: [
+          { urls: 'stun:stun.stunprotocol.org:3478' },
+          { urls: 'stun:stun.l.google.com:19302' },
+        ]
+      }
+    };
+    this.settings = Object.assign({}, defaultSettings, options);
 
-        this.settings = Object.assign({}, defaultSettings, options);
-        this._isOpen = false;
-        this.eventListeners = new Map();
-        this.connection = null;
-        this.consumers = new Map();
-        this.clients = new Map();
-        this.localPeer = null;
-        this.localUUID = null;
-        this.localStream = null;
-        Object.keys(_EVENTS).forEach(event => {
-            this.eventListeners.set(event, []);
+    // event bus
+    this.eventListeners = new Map();
+    Object.keys(_EVENTS).forEach(k => this.eventListeners.set(k, []));
+
+    // state
+    this.connection = null;
+    this.localPeer = null;
+    this.localUUID = null;
+    this.localStream = null;
+    this.consumers = new Map();
+    this.clients = new Map();
+
+    // E2EE
+    this.E2EE_KEY = null;
+    this._alertedDecryptFail = false;
+
+    this.initWebSocket();
+  }
+
+  // ---------- event helpers ----------
+  on(event, cb) {
+    if (this.eventListeners.has(event)) this.eventListeners.get(event).push(cb);
+  }
+  trigger(event, payload=null) {
+    if (!this.eventListeners.has(event)) return;
+    this.eventListeners.get(event).forEach(cb => cb.call(this, payload));
+  }
+
+  // ---------- passphrase / key ----------
+  async getKeyFromUser() {
+    const required = 'vt-demo-123'; // STRICT match
+    const pass = prompt('Enter E2EE passphrase (exactly: vt-demo-123)');
+    if (pass !== required) {
+      alert('❌ Wrong passphrase');
+      throw new Error('Invalid passphrase');
+    }
+    // derive AES-GCM key
+    const enc = new TextEncoder();
+    const base = await crypto.subtle.importKey('raw', enc.encode(pass), { name: 'PBKDF2' }, false, ['deriveKey']);
+    const salt = enc.encode('vt-salt');
+    const key = await crypto.subtle.deriveKey(
+      { name: 'PBKDF2', hash: 'SHA-256', salt, iterations: 100000 },
+      base,
+      { name: 'AES-GCM', length: 128 },
+      false,
+      ['encrypt', 'decrypt']
+    );
+    uiNotify('🔑 E2EE key ready');
+    return key;
+  }
+
+  // ---------- websocket / signaling ----------
+  initWebSocket() {
+    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+    const url = `${protocol}://${window.location.hostname}:${this.settings.port}`;
+    this.connection = new WebSocket(url);
+
+    this.connection.onopen = () => {
+      uiNotify('🟢 Connected to SFU');
+      // IMPORTANT: this re-enables the Connect button in index.html
+      this.trigger(_EVENTS.onConnected);
+    };
+
+    this.connection.onmessage = (evt) => this.handleMessage(evt);
+    this.connection.onclose = () => uiNotify('🔴 Disconnected from SFU', '#f66');
+  }
+
+  handleMessage({ data }) {
+    const msg = JSON.parse(data);
+    switch (msg.type) {
+      case 'welcome':
+        this.localUUID = msg.id;
+        break;
+      case 'answer':
+        this.handleAnswer(msg);
+        break;
+      case 'peers':
+        this.handlePeers(msg);
+        break;
+      case 'consume':
+        this.handleConsume(msg);
+        break;
+      case 'newProducer':
+        this.handleNewProducer(msg);
+        break;
+      case 'user_left':
+        this.removeUser(msg);
+        break;
+    }
+  }
+
+  // ---------- connection flow ----------
+  async connect() {
+    // derive E2EE key first (strict passphrase)
+    this.E2EE_KEY = await this.getKeyFromUser();
+
+    // get local media & show self tile
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+    this.localStream = stream;
+    this.handleRemoteTrack(stream, (window.username?.value ?? 'me'), 'local-self');
+
+    // create peer
+    this.localPeer = new RTCPeerConnection(this.settings.configuration);
+
+    // add tracks + attach ENCRYPT transform
+    this.localStream.getTracks().forEach(track => {
+      const sender = this.localPeer.addTrack(track, this.localStream);
+
+      // sender transform for video/audio
+      const wrapSend = (creator) => {
+        const { readable, writable } = creator.call(sender);
+        const ts = new TransformStream({
+          transform: async (frame, controller) => {
+            try {
+              const iv = crypto.getRandomValues(new Uint8Array(12));   // 96-bit IV
+              const pt = new Uint8Array(frame.data);
+              const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, this.E2EE_KEY, pt));
+              // FRAME: [ IV(12) | ciphertext ]
+              const out = new Uint8Array(12 + ct.length);
+              out.set(iv, 0);
+              out.set(ct, 12);
+              frame.data = out.buffer;
+              controller.enqueue(frame);
+            } catch (e) {
+              console.error('Encrypt error:', e);
+            }
+          }
         });
+        readable.pipeThrough(ts).pipeTo(writable);
+      };
 
-        this.initWebSocket();
-        this.trigger(_EVENTS.onReady);
-    }
+      if (sender.createEncodedVideoStreams && track.kind === 'video') wrapSend(sender.createEncodedVideoStreams);
+      if (sender.createEncodedAudioStreams && track.kind === 'audio') wrapSend(sender.createEncodedAudioStreams);
+    });
 
-    initWebSocket() {
-        const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-        const url = `${protocol}://${window.location.hostname}:${this.settings.port}`;
-        this.connection = new WebSocket(url);
-        this.connection.onmessage = (data) => this.handleMessage(data);
-        this.connection.onclose = () => this.handleClose();
-        this.connection.onopen = event => {
-            this.trigger(_EVENTS.onConnected, event);
-            this._isOpen = true;
-        }
-    }
+    this.localPeer.onicecandidate = (e) => {
+      if (e.candidate) {
+        this.connection.send(JSON.stringify({ type: 'ice', ice: e.candidate, uqid: this.localUUID }));
+      }
+    };
 
-    on(event, callback) {
-        if (this.eventListeners.has(event)) {
-            this.eventListeners.get(event).push(callback);
-        }
-    }
+    this.localPeer.onnegotiationneeded = async () => {
+      const offer = await this.localPeer.createOffer();
+      await this.localPeer.setLocalDescription(offer);
+      this.connection.send(JSON.stringify({
+        type: 'connect',
+        sdp: this.localPeer.localDescription,
+        uqid: this.localUUID,
+        username: window.username?.value ?? 'user'
+      }));
+    };
 
-    trigger(event, args = null) {
-        if (this.eventListeners.has(event)) {
-            this.eventListeners.get(event).forEach(callback => callback.call(this, args));
-        }
-    }
+    uiNotify('🎥 Local stream started — connect the other tab with SAME passphrase');
+  }
 
-    static get EVENTS() {
-        return _EVENTS;
-    }
+  handleAnswer({ sdp }) {
+    const desc = new RTCSessionDescription(sdp);
+    this.localPeer.setRemoteDescription(desc).catch(console.error);
+  }
 
-    get IsOpen() {
-        return _isOpen;
-    }
+  async handlePeers({ peers }) {
+    if (!peers || !peers.length) return;
+    for (const p of peers) await this.consumeOnce(p);
+  }
 
-    findUserVideo(consumerId) {
-        const video = document.querySelector(`#remote_${consumerId}`)
-        if (!video) {
-            return false;
-        }
-        return video
-    }
+  async handleNewProducer({ id, username }) {
+    await this.consumeOnce({ id, username });
+  }
 
-    /**
-     * 
-     * @returns {Promise<MediaStream>}
-     * @memberof SimpleSFUClient
-     * @description This method will return a promise that resolves to a MediaStream object.
-     * The MediaStream object will contain the white noise that you can use instead of an actual webcam video/audio.
-     */
-    whiteNoise = () => {
-        let canvas = document.createElement('canvas');
-        canvas.width = 160;
-        canvas.height = 120;
-        let ctx = canvas.getContext('2d');
-        let p = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        requestAnimationFrame(function draw() {
-            for (var i = 0; i < p.data.length; i++) {
-                p.data[i++] = p.data[i++] = p.data[i++] = Math.random() * 255;
+  async consumeOnce(peer) {
+    const consumerId = crypto.randomUUID();
+    const pc = new RTCPeerConnection(this.settings.configuration);
+    this.consumers.set(consumerId, pc);
+    this.clients.set(peer.id, { ...peer, consumerId });
+
+    pc.addTransceiver('video', { direction: 'recvonly' });
+    pc.addTransceiver('audio', { direction: 'recvonly' });
+
+    pc.onicecandidate = (e) => {
+      if (e.candidate) {
+        this.connection.send(JSON.stringify({
+          type: 'consumer_ice',
+          ice: e.candidate, uqid: peer.id, consumerId
+        }));
+      }
+    };
+
+    // attach DECRYPT transform on receiver before we render
+    pc.ontrack = (e) => {
+      const attachRecv = (receiver, kind) => {
+        if (!receiver) return;
+        const creator = kind === 'video' ? receiver.createEncodedVideoStreams : receiver.createEncodedAudioStreams;
+        if (!creator) return;
+
+        const { readable, writable } = creator.call(receiver);
+        const ts = new TransformStream({
+          transform: async (frame, controller) => {
+            try {
+              const buf = new Uint8Array(frame.data);
+              if (buf.length < 13) { controller.enqueue(frame); return; }
+              const iv = buf.subarray(0, 12);
+              const ct = buf.subarray(12);
+              const pt = new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, this.E2EE_KEY, ct));
+              frame.data = pt.buffer;
+              controller.enqueue(frame);
+            } catch (e) {
+              if (!this._alertedDecryptFail) {
+                alert('❌ Decryption failed! Make sure BOTH tabs entered exactly: vt-demo-123');
+                this._alertedDecryptFail = true; // avoid spamming
+              }
             }
-            ctx.putImageData(p, 0, 0);
-            requestAnimationFrame(draw);
+          }
         });
-        return canvas;
+        readable.pipeThrough(ts).pipeTo(writable);
+      };
+
+      // do it per kind
+      const rxVideo = pc.getReceivers().find(r => r.track && r.track.kind === 'video');
+      const rxAudio = pc.getReceivers().find(r => r.track && r.track.kind === 'audio');
+      attachRecv(rxVideo, 'video');
+      attachRecv(rxAudio, 'audio');
+
+      // render stream
+      this.handleRemoteTrack(e.streams[0], peer.username, this.clients.get(peer.id)?.consumerId || consumerId);
+    };
+
+    const offer = await pc.createOffer();
+    await pc.setLocalDescription(offer);
+    this.connection.send(JSON.stringify({ type: 'consume', id: peer.id, consumerId, sdp: pc.localDescription }));
+  }
+
+  handleConsume({ sdp, id, consumerId }) {
+    const desc = new RTCSessionDescription(sdp);
+    this.consumers.get(consumerId)?.setRemoteDescription(desc).catch(console.error);
+  }
+
+  removeUser({ id }) {
+    const c = this.clients.get(id);
+    if (c?.consumerId) {
+      this.consumers.delete(c.consumerId);
     }
+    this.clients.delete(id);
+  }
 
+  // ---------- UI helpers ----------
+  findUserVideo(consumerId) {
+    const video = document.querySelector(`#remote_${consumerId}`);
+    return video || false;
+  }
 
-    createVideoElement(username, stream, consumerId) {
-        const video = document.createElement('video');
-        video.id = `remote_${consumerId}`
-        video.srcObject = stream;
-        video.autoplay = true;
-        video.muted = (username == username.value);
-        return video;
+  createVideoElement(label, stream, consumerId) {
+    const video = document.createElement('video');
+    video.id = `remote_${consumerId}`;
+    video.srcObject = stream;
+    video.autoplay = true;
+    video.muted = (label === (window.username?.value ?? 'user'));
+    return video;
+  }
+
+  createVideoWrapper(video, label, consumerId) {
+    const div = document.createElement('div');
+    div.id = `user_${consumerId}`;
+    div.classList.add('videoWrap');
+
+    const name = document.createElement('div');
+    name.classList.add('display_name');
+    name.textContent = label;
+
+    div.appendChild(name);
+    div.appendChild(video);
+    document.querySelector('.videos-inner')?.appendChild(div);
+    return div;
+  }
+
+  handleRemoteTrack(stream, label, consumerId='self') {
+    const existing = this.findUserVideo(consumerId);
+    if (existing) {
+      const t = stream.getTracks()[0];
+      if (!existing.srcObject.getTracks().includes(t)) existing.srcObject.addTrack(t);
+    } else {
+      const v = this.createVideoElement(label, stream, consumerId);
+      this.createVideoWrapper(v, label, consumerId);
     }
-
-    createDisplayName(username) {
-        const nameContainer = document.createElement('div');
-        nameContainer.classList.add('display_name')
-        const textNode = document.createTextNode(username);
-        nameContainer.appendChild(textNode);
-        return nameContainer;
-    }
-
-    /**
-     * 
-     * @param {*} video 
-     * @param {*} username 
-     * @returns {HTMLDivElement}
-     */
-    createVideoWrapper(video, username, consumerId) {
-        const div = document.createElement('div')
-        div.id = `user_${consumerId}`;
-        div.classList.add('videoWrap')
-        div.appendChild(this.createDisplayName(username));
-        div.appendChild(video);
-        return div;
-    }
-
-    async handleRemoteTrack(stream, username, consumerId) {
-        const userVideo = this.findUserVideo(consumerId);
-        if (userVideo) {
-            // If the track already exists, do not add it again.
-            // This can happen when the remote user unmutes their mic.
-            const tracks = userVideo.srcObject.getTracks();
-            const track = stream.getTracks()[0];
-            if (tracks.includes(track)) {
-                return;
-            }
-
-            userVideo.srcObject.addTrack(track)
-        } else {
-            const video = this.createVideoElement(username, stream, consumerId);
-
-            const Hark = new hark(stream);
-
-            Hark.on('volume_change', (dBs, threshold) => {
-                this.trigger(_EVENTS.onRemoteVolumeChange, { username, stream, consumerId, dBs, threshold });
-            });
-
-            Hark.on('stopped_speaking', () => {
-                this.trigger(_EVENTS.onRemoteStoppedSpeaking, { username, stream, consumerId });
-                video.classList.remove('speaking');
-            });
-
-            Hark.on('speaking', () => {
-                this.trigger(_EVENTS.onRemoteSpeaking, { username, stream, consumerId });
-                video.classList.add('speaking');
-            });
-
-            const div = this.createVideoWrapper(video, username, consumerId);
-            document.querySelector('.videos-inner').appendChild(div);
-
-            this.trigger(_EVENTS.onRemoteTrack, stream)
-        }
-
-        this.recalculateLayout();
-    }
-
-    async handleIceCandidate({ candidate }) {
-        if (candidate && candidate.candidate && candidate.candidate.length > 0) {
-            const payload = {
-                type: 'ice',
-                ice: candidate,
-                uqid: this.localUUID
-            }
-            this.connection.send(JSON.stringify(payload));
-        }
-    }
-
-    handleConsumerIceCandidate(e, id, consumerId) {
-        const { candidate } = e;
-        if (candidate && candidate.candidate && candidate.candidate.length > 0) {
-            const payload = {
-                type: 'consumer_ice',
-                ice: candidate,
-                uqid: id,
-                consumerId
-            }
-            this.connection.send(JSON.stringify(payload));
-        }
-    }
-
-    handleConsume({ sdp, id, consumerId }) {
-        const desc = new RTCSessionDescription(sdp);
-        this.consumers.get(consumerId).setRemoteDescription(desc).catch(e => console.log(e));
-    }
-
-    async createConsumeTransport(peer) {
-        const consumerId = this.uuidv4();
-        const consumerTransport = new RTCPeerConnection(this.settings.configuration);
-        this.clients.get(peer.id).consumerId = consumerId;
-        consumerTransport.id = consumerId;
-        consumerTransport.peer = peer;
-        this.consumers.set(consumerId, consumerTransport);
-        this.consumers.get(consumerId).addTransceiver('video', { direction: "recvonly" })
-        this.consumers.get(consumerId).addTransceiver('audio', { direction: "recvonly" })
-        const offer = await this.consumers.get(consumerId).createOffer();
-        await this.consumers.get(consumerId).setLocalDescription(offer);
-
-
-        this.consumers.get(consumerId).onicecandidate = (e) => this.handleConsumerIceCandidate(e, peer.id, consumerId);
-
-        this.consumers.get(consumerId).ontrack = (e) => {
-            this.handleRemoteTrack(e.streams[0], peer.username, consumerId);
-        };
-
-        return consumerTransport;
-    }
-
-    async consumeOnce(peer) {
-        const transport = await this.createConsumeTransport(peer);
-        const payload = {
-            type: 'consume',
-            id: peer.id,
-            consumerId: transport.id,
-            sdp: await transport.localDescription
-        }
-
-        this.connection.send(JSON.stringify(payload))
-    }
-
-    async handlePeers({ peers }) {
-        if (peers.length > 0) {
-            for (const peer in peers) {
-                this.clients.set(peers[peer].id, peers[peer]);
-                await this.consumeOnce(peers[peer]);
-            }
-        }
-    }
-
-    handleAnswer({ sdp }) {
-        const desc = new RTCSessionDescription(sdp);
-        this.localPeer.setRemoteDescription(desc).catch(e => console.log(e));
-    }
-
-    async handleNewProducer({ id, username }) {
-        if (id === this.localUUID) return;
-
-        this.clients.set(id, { id, username });
-
-        await this.consumeOnce({ id, username });
-    }
-
-    handleMessage({ data }) {
-        const message = JSON.parse(data);
-
-        switch (message.type) {
-            case 'welcome':
-                this.localUUID = message.id;
-                break;
-            case 'answer':
-                this.handleAnswer(message);
-                break;
-            case 'peers':
-                this.handlePeers(message);
-                break;
-            case 'consume':
-                this.handleConsume(message)
-                break
-            case 'newProducer':
-                this.handleNewProducer(message);
-                break;
-            case 'user_left':
-                this.removeUser(message);
-                break;
-        }
-    }
-
-    removeUser({ id }) {
-        const { username, consumerId } = this.clients.get(id);
-        this.consumers.delete(consumerId);
-        this.clients.delete(id);
-        document.querySelector(`#remote_${consumerId}`).srcObject.getTracks().forEach(track => track.stop());
-        document.querySelector(`#user_${consumerId}`).remove();
-
-        this.recalculateLayout();
-    }
-
-    async connect() { //Produce media
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-        this.handleRemoteTrack(stream, username.value)
-        this.localStream = stream;
-
-        this.localPeer = this.createPeer();
-        this.localStream.getTracks().forEach(track => this.localPeer.addTrack(track, this.localStream));
-        await this.subscribe();
-    }
-
-    createPeer() {
-        this.localPeer = new RTCPeerConnection(this.configuration);
-        this.localPeer.onicecandidate = (e) => this.handleIceCandidate(e);
-        //peer.oniceconnectionstatechange = checkPeerConnection;
-        this.localPeer.onnegotiationneeded = () => this.handleNegotiation();
-        return this.localPeer;
-    }
-
-    async subscribe() { // Consume media
-        await this.consumeAll();
-    }
-
-    async consumeAll() {
-        const payload = {
-            type: 'getPeers',
-            uqid: this.localUUID
-        }
-
-        this.connection.send(JSON.stringify(payload));
-    }
-
-    async handleNegotiation(peer, type) {
-        console.log('*** negoitating ***')
-        const offer = await this.localPeer.createOffer();
-        await this.localPeer.setLocalDescription(offer);
-
-        this.connection.send(JSON.stringify({ type: 'connect', sdp: this.localPeer.localDescription, uqid: this.localUUID, username: username.value }));
-    }
-
-    handleClose() {
-        this.connection = null;
-        if(this.localStream) {
-            this.localStream.getTracks().forEach(track => track.stop());
-        }
-        this.clients = null;
-        this.consumers = null;
-    }
-
-
-    uuidv4() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-        });
-    }
-
-    recalculateLayout() {
-        const container = remoteContainer;
-        const videoContainer = document.querySelector('.videos-inner');
-        const videoCount = container.querySelectorAll('.videoWrap').length;
-
-        if (videoCount >= 3) {
-            videoContainer.style.setProperty("--grow", 0 + "");
-        } else {
-            videoContainer.style.setProperty("--grow", 1 + "");
-        }
-    }
+  }
 }
+
+
