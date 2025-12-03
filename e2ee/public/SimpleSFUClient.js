@@ -55,6 +55,8 @@ class SimpleSFUClient {
     // E2EE
     this.E2EE_KEY = null;
     this._alertedDecryptFail = false;
+    this.performanceMonitor = null;
+    this.resourceMonitor = null;
 
     this.initWebSocket();
   }
@@ -191,8 +193,27 @@ class SimpleSFUClient {
         username: window.username?.value ?? 'user'
       }));
     };
-
+  //Added for measurement
+  setTimeout(() => {
+  if (this.localPeer) {
+    this.performanceMonitor = new PerformanceMonitor(this.localPeer, {
+      sessionId: `test-${Date.now()}`,
+      interval: 1000
+    });
+    this.performanceMonitor.start();
+    
+    this.resourceMonitor = new ResourceMonitor({ interval: 1000 });
+    this.resourceMonitor.start();
+    
+    console.log('✅ Monitoring started');
+  }
+}, 2000);
+//
     uiNotify('🎥 Local stream started — connect the other tab with SAME passphrase');
+     // Start monitoring after connection is established
+    setTimeout(() => {
+      this.startMonitoring();
+    }, 2000);
   }
 
   handleAnswer({ sdp }) {
@@ -324,6 +345,83 @@ class SimpleSFUClient {
       this.createVideoWrapper(v, label, consumerId);
     }
   }
+  // ---------- Performance Monitoring Methods ----------
+
+  /**
+   * Start performance monitoring
+   */
+  startMonitoring() {
+    if (!this.localPeer) {
+      console.warn('[SimpleSFUClient] Cannot start monitoring - no peer connection yet');
+      return;
+    }
+
+    if (this.performanceMonitor) {
+      console.log('[SimpleSFUClient] Monitoring already started');
+      return;
+    }
+
+    console.log('[SimpleSFUClient] Starting performance monitoring...');
+    
+    this.performanceMonitor = new PerformanceMonitor(this.localPeer, {
+      sessionId: `e2ee-test-${this.localUUID || Date.now()}`,
+      interval: 1000
+    });
+    this.performanceMonitor.start();
+    
+    this.resourceMonitor = new ResourceMonitor({ interval: 1000 });
+    this.resourceMonitor.start();
+    
+    console.log('✅ Performance monitoring started');
+    uiNotify('✅ Monitoring active', '#0f0');
+  }
+
+  /**
+   * Stop monitoring
+   */
+  stopMonitoring() {
+    if (this.performanceMonitor) {
+      this.performanceMonitor.stop();
+      console.log('📊 Performance Summary:', this.performanceMonitor.getSummary());
+    }
+    
+    if (this.resourceMonitor) {
+      this.resourceMonitor.stop();
+      console.log('📊 Resource Summary:', this.resourceMonitor.getSummary());
+    }
+  }
+
+  /**
+   * Get current metrics
+   */
+  getCurrentMetrics() {
+    if (!this.performanceMonitor) return null;
+    
+    return {
+      performance: this.performanceMonitor.getSummary(),
+      resources: this.resourceMonitor ? this.resourceMonitor.getSummary() : null
+    };
+  }
+
+  /**
+   * Export results
+   */
+  exportResults(format = 'json') {
+    if (!this.performanceMonitor) {
+      console.warn('No performance data to export');
+      return;
+    }
+    
+    this.performanceMonitor.downloadData(format);
+    
+    if (this.resourceMonitor) {
+      this.resourceMonitor.downloadData(format);
+    }
+    
+    console.log(`✅ Exported results as ${format.toUpperCase()}`);
+  } 
+  
+
 }
 
 

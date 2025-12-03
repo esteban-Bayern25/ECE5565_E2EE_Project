@@ -9,12 +9,23 @@
 </head>
 <body>
     <input type="text" id="username" placeholder="enter your username" /><button id="connect" disabled>Connect</button>
+    <div style="margin-top: 10px;">
+    <button id="export-btn" style="background: #4CAF50; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">📊 Export Results</button>
+    <button id="summary-btn" style="background: #2196F3; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">📈 Show Summary</button>
+    <select id="export-format" style="padding: 8px; border-radius: 4px;">
+        <option value="json">JSON</option>
+        <option value="csv">CSV</option>
+    </select>
+</div>
     <br/>
     <div id="remote_videos">
         <div class="videos-inner"></div>
     </div>
     <script src="hark.js"></script>
-    <script src="SimpleSFUClient.js"></script>
+    <script src="performance-monitor.js"></script>
+    <script src="resource-monitor.js"></script>
+<script src="test-harness.js"></script>
+<script src="SimpleSFUClient.js"></script>
     <script>
         const connectBtn = document.querySelector('#connect');
         const remoteContainer = document.querySelector('#remote_videos');
@@ -25,5 +36,70 @@
             connectBtn.addEventListener('click', () => simple.connect())
         });
     </script>
+<!-- ADD METRICS DISPLAY -->
+<div id="metrics-display" style="
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #0f0;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    border-radius: 8px;
+    border: 2px solid #0f0;
+    min-width: 280px;
+    z-index: 10000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+">
+    <div id="current-metrics" style="line-height: 1.6;">
+        <strong style="color: #0ff;">⏳ Waiting for connection...</strong>
+    </div>
+</div>
+
+<script>
+       
+    // TEST CONTROL EVENT HANDLERS
+    document.getElementById('export-btn').addEventListener('click', () => {
+        const format = document.getElementById('export-format').value;
+        if (simple.performanceMonitor) {
+            simple.performanceMonitor.downloadData(format);
+            alert(`✅ Performance data exported as ${format.toUpperCase()}`);
+        } else {
+            alert('⚠️ No data to export yet. Connect first!');
+        }
+    });
+
+    document.getElementById('summary-btn').addEventListener('click', () => {
+        if (simple.performanceMonitor) {
+            const metrics = simple.performanceMonitor.getSummary();
+            console.log('📊 PERFORMANCE SUMMARY:');
+            console.table(metrics);
+            alert('✅ Check browser console (F12) for detailed metrics table');
+        } else {
+            alert('⚠️ No data available yet. Connect first!');
+        }
+    });
+    
+    // UPDATE METRICS DISPLAY EVERY 5 SECONDS
+    setInterval(() => {
+        if (simple.performanceMonitor && simple.performanceMonitor.statsHistory.length > 0) {
+            const m = simple.performanceMonitor.getSummary();
+            const display = document.getElementById('current-metrics');
+            
+            display.innerHTML = `
+                <strong style="color: #0ff;">📊 Live Metrics</strong><br>
+                <span style="color: #fff;">Samples:</span> <span style="color: #0f0;">${m.samples}</span><br>
+                <span style="color: #fff;">Latency P95:</span> <span style="color: ${parseFloat(m.latency.p95) > 100 ? '#ff0' : '#0f0'}">${m.latency.p95} ms</span><br>
+                <span style="color: #fff;">Latency P99:</span> <span style="color: ${parseFloat(m.latency.p99) > 150 ? '#f00' : '#0f0'}">${m.latency.p99} ms</span><br>
+                <span style="color: #fff;">Jitter P95:</span> <span style="color: ${parseFloat(m.jitter.p95) > 30 ? '#ff0' : '#0f0'}">${m.jitter.p95} ms</span><br>
+                <span style="color: #fff;">Packet Loss:</span> <span style="color: ${parseFloat(m.packetLoss.mean) > 1 ? '#f00' : '#0f0'}">${m.packetLoss.mean}%</span><br>
+                <span style="color: #fff;">Bitrate:</span> <span style="color: #0ff;">${m.bitrate.mean} kbps</span><br>
+                <span style="color: #fff;">Frame Rate:</span> <span style="color: #0ff;">${m.frameRate.mean} fps</span>
+            `;
+        }
+    }, 5000);
+</script>
+ 
 </body>
 </html>
