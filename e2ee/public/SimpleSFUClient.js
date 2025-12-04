@@ -54,7 +54,10 @@ class SimpleSFUClient {
 
     // E2EE
     this.E2EE_KEY = null;
+    this.E2EE_ENABLED = false;
     this._alertedDecryptFail = false;
+
+    // Performance monitoring
     this.performanceMonitor = null;
     this.resourceMonitor = null;
 
@@ -70,14 +73,25 @@ class SimpleSFUClient {
     this.eventListeners.get(event).forEach(cb => cb.call(this, payload));
   }
 
-  // ---------- passphrase / key ----------
+  // ---------- passphrase / key (OPTIONAL) ----------
   async getKeyFromUser() {
     const required = 'vt-demo-123'; // STRICT match
-    const pass = prompt('Enter E2EE passphrase (exactly: vt-demo-123)');
-    if (pass !== required) {
-      alert('❌ Wrong passphrase');
-      throw new Error('Invalid passphrase');
+    const pass = prompt('Enter E2EE passphrase (exactly: vt-demo-123)\n\nOr click CANCEL for baseline test (no encryption)');
+    
+    // If user cancels or leaves blank, skip E2EE
+    if (!pass || pass === '') {
+      console.log('⚠️ No passphrase entered - E2EE DISABLED (baseline mode)');
+      uiNotify('⚠️ Baseline mode (no E2EE)', '#ff0');
+      return null;
     }
+    
+    if (pass !== required) {
+      alert('❌ Wrong passphrase - will connect without E2EE');
+      console.warn('Invalid passphrase - E2EE DISABLED');
+      uiNotify('⚠️ Invalid passphrase - no E2EE', '#f60');
+      return null;
+    }
+    
     // derive AES-GCM key
     const enc = new TextEncoder();
     const base = await crypto.subtle.importKey('raw', enc.encode(pass), { name: 'PBKDF2' }, false, ['deriveKey']);
@@ -89,7 +103,8 @@ class SimpleSFUClient {
       false,
       ['encrypt', 'decrypt']
     );
-    uiNotify('🔑 E2EE key ready');
+    console.log('✅ E2EE key derived successfully');
+    uiNotify('🔒 E2EE enabled', '#0f0');
     return key;
   }
 
@@ -135,8 +150,9 @@ class SimpleSFUClient {
 
   // ---------- connection flow ----------
   async connect() {
-    // derive E2EE key first (strict passphrase)
+    // Try to get E2EE key (optional)
     this.E2EE_KEY = await this.getKeyFromUser();
+    this.E2EE_ENABLED = (this.E2EE_KEY !== null);
 
     // get local media & show self tile
     const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
@@ -146,35 +162,39 @@ class SimpleSFUClient {
     // create peer
     this.localPeer = new RTCPeerConnection(this.settings.configuration);
 
-    // add tracks + attach ENCRYPT transform
+    // add tracks + attach ENCRYPT transform (if E2EE enabled)
     this.localStream.getTracks().forEach(track => {
       const sender = this.localPeer.addTrack(track, this.localStream);
 
-      // sender transform for video/audio
-      const wrapSend = (creator) => {
-        const { readable, writable } = creator.call(sender);
-        const ts = new TransformStream({
-          transform: async (frame, controller) => {
-            try {
-              const iv = crypto.getRandomValues(new Uint8Array(12));   // 96-bit IV
-              const pt = new Uint8Array(frame.data);
-              const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, this.E2EE_KEY, pt));
-              // FRAME: [ IV(12) | ciphertext ]
-              const out = new Uint8Array(12 + ct.length);
-              out.set(iv, 0);
-              out.set(ct, 12);
-              frame.data = out.buffer;
-              controller.enqueue(frame);
-            } catch (e) {
-              console.error('Encrypt error:', e);
+      // Only add encryption if E2EE is enabled
+      if (this.E2EE_ENABLED) {
+        // sender transform for video/audio
+        const wrapSend = (creator) => {
+          const { readable, writable } = creator.call(sender);
+          const ts = new TransformStream({
+            transform: async (frame, controller) => {
+              try {
+                const iv = crypto.getRandomValues(new Uint8Array(12));   // 96-bit IV
+                const pt = new Uint8Array(frame.data);
+                const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, this.E2EE_KEY, pt));
+                // FRAME: [ IV(12) | ciphertext ]
+                const out = new Uint8Array(12 + ct.length);
+                out.set(iv, 0);
+                out.set(ct, 12);
+                frame.data = out.buffer;
+                controller.enqueue(frame);
+              } catch (e) {
+                console.error('Encrypt error:', e);
+                controller.enqueue(frame); // Send unencrypted on error
+              }
             }
-          }
-        });
-        readable.pipeThrough(ts).pipeTo(writable);
-      };
+          });
+          readable.pipeThrough(ts).pipeTo(writable);
+        };
 
-      if (sender.createEncodedVideoStreams && track.kind === 'video') wrapSend(sender.createEncodedVideoStreams);
-      if (sender.createEncodedAudioStreams && track.kind === 'audio') wrapSend(sender.createEncodedAudioStreams);
+        if (sender.createEncodedVideoStreams && track.kind === 'video') wrapSend(sender.createEncodedVideoStreams);
+        if (sender.createEncodedAudioStreams && track.kind === 'audio') wrapSend(sender.createEncodedAudioStreams);
+      }
     });
 
     this.localPeer.onicecandidate = (e) => {
@@ -193,24 +213,14 @@ class SimpleSFUClient {
         username: window.username?.value ?? 'user'
       }));
     };
-  //Added for measurement
-  setTimeout(() => {
-  if (this.localPeer) {
-    this.performanceMonitor = new PerformanceMonitor(this.localPeer, {
-      sessionId: `test-${Date.now()}`,
-      interval: 1000
-    });
-    this.performanceMonitor.start();
+
+    const modeMsg = this.E2EE_ENABLED ? 
+      '🎥 Local stream started – E2EE ENABLED' : 
+      '🎥 Local stream started – BASELINE MODE (no E2EE)';
+    uiNotify(modeMsg);
+    console.log(modeMsg);
     
-    this.resourceMonitor = new ResourceMonitor({ interval: 1000 });
-    this.resourceMonitor.start();
-    
-    console.log('✅ Monitoring started');
-  }
-}, 2000);
-//
-    uiNotify('🎥 Local stream started — connect the other tab with SAME passphrase');
-     // Start monitoring after connection is established
+    // Start monitoring after connection is established
     setTimeout(() => {
       this.startMonitoring();
     }, 2000);
@@ -236,6 +246,11 @@ class SimpleSFUClient {
     this.consumers.set(consumerId, pc);
     this.clients.set(peer.id, { ...peer, consumerId });
 
+    // IMPORTANT: Add consumer to performance monitor
+    if (this.performanceMonitor) {
+      this.performanceMonitor.addConsumer(consumerId, pc);
+    }
+
     pc.addTransceiver('video', { direction: 'recvonly' });
     pc.addTransceiver('audio', { direction: 'recvonly' });
 
@@ -248,42 +263,45 @@ class SimpleSFUClient {
       }
     };
 
-    // attach DECRYPT transform on receiver before we render
+    // attach DECRYPT transform on receiver (if E2EE enabled)
     pc.ontrack = (e) => {
-      const attachRecv = (receiver, kind) => {
-        if (!receiver) return;
-        const creator = kind === 'video' ? receiver.createEncodedVideoStreams : receiver.createEncodedAudioStreams;
-        if (!creator) return;
+      if (this.E2EE_ENABLED) {
+        const attachRecv = (receiver, kind) => {
+          if (!receiver) return;
+          const creator = kind === 'video' ? receiver.createEncodedVideoStreams : receiver.createEncodedAudioStreams;
+          if (!creator) return;
 
-        const { readable, writable } = creator.call(receiver);
-        const ts = new TransformStream({
-          transform: async (frame, controller) => {
-            try {
-              const buf = new Uint8Array(frame.data);
-              if (buf.length < 13) { controller.enqueue(frame); return; }
-              const iv = buf.subarray(0, 12);
-              const ct = buf.subarray(12);
-              const pt = new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, this.E2EE_KEY, ct));
-              frame.data = pt.buffer;
-              controller.enqueue(frame);
-            } catch (e) {
-              if (!this._alertedDecryptFail) {
-                alert('❌ Decryption failed! Make sure BOTH tabs entered exactly: vt-demo-123');
-                this._alertedDecryptFail = true; // avoid spamming
+          const { readable, writable } = creator.call(receiver);
+          const ts = new TransformStream({
+            transform: async (frame, controller) => {
+              try {
+                const buf = new Uint8Array(frame.data);
+                if (buf.length < 13) { controller.enqueue(frame); return; }
+                const iv = buf.subarray(0, 12);
+                const ct = buf.subarray(12);
+                const pt = new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, this.E2EE_KEY, ct));
+                frame.data = pt.buffer;
+                controller.enqueue(frame);
+              } catch (e) {
+                if (!this._alertedDecryptFail) {
+                  alert('❌ Decryption failed! Make sure BOTH tabs entered exactly: vt-demo-123');
+                  this._alertedDecryptFail = true;
+                }
+                // Don't enqueue failed frames
               }
             }
-          }
-        });
-        readable.pipeThrough(ts).pipeTo(writable);
-      };
+          });
+          readable.pipeThrough(ts).pipeTo(writable);
+        };
 
-      // do it per kind
-      const rxVideo = pc.getReceivers().find(r => r.track && r.track.kind === 'video');
-      const rxAudio = pc.getReceivers().find(r => r.track && r.track.kind === 'audio');
-      attachRecv(rxVideo, 'video');
-      attachRecv(rxAudio, 'audio');
+        // do it per kind
+        const rxVideo = pc.getReceivers().find(r => r.track && r.track.kind === 'video');
+        const rxAudio = pc.getReceivers().find(r => r.track && r.track.kind === 'audio');
+        attachRecv(rxVideo, 'video');
+        attachRecv(rxAudio, 'audio');
+      }
 
-      // render stream
+      // render stream (works with or without E2EE)
       this.handleRemoteTrack(e.streams[0], peer.username, this.clients.get(peer.id)?.consumerId || consumerId);
     };
 
@@ -300,6 +318,10 @@ class SimpleSFUClient {
   removeUser({ id }) {
     const c = this.clients.get(id);
     if (c?.consumerId) {
+      // Remove from performance monitor
+      if (this.performanceMonitor) {
+        this.performanceMonitor.removeConsumer(c.consumerId);
+      }
       this.consumers.delete(c.consumerId);
     }
     this.clients.delete(id);
@@ -345,6 +367,7 @@ class SimpleSFUClient {
       this.createVideoWrapper(v, label, consumerId);
     }
   }
+
   // ---------- Performance Monitoring Methods ----------
 
   /**
@@ -361,19 +384,32 @@ class SimpleSFUClient {
       return;
     }
 
-    console.log('[SimpleSFUClient] Starting performance monitoring...');
+    const mode = this.E2EE_ENABLED ? 'e2ee' : 'baseline';
+    console.log(`[SimpleSFUClient] Starting performance monitoring (${mode} mode)...`);
     
-    this.performanceMonitor = new PerformanceMonitor(this.localPeer, {
-      sessionId: `e2ee-test-${this.localUUID || Date.now()}`,
+    // Create monitor without peer connection initially
+    this.performanceMonitor = new PerformanceMonitor({
+      sessionId: `${mode}-test-${this.localUUID || Date.now()}`,
       interval: 1000
     });
+    
+    // Set the local peer
+    this.performanceMonitor.setLocalPeer(this.localPeer);
+    
+    // Add any existing consumers
+    this.consumers.forEach((pc, consumerId) => {
+      this.performanceMonitor.addConsumer(consumerId, pc);
+    });
+    
+    // Start monitoring
     this.performanceMonitor.start();
     
+    // Start resource monitor
     this.resourceMonitor = new ResourceMonitor({ interval: 1000 });
     this.resourceMonitor.start();
     
-    console.log('✅ Performance monitoring started');
-    uiNotify('✅ Monitoring active', '#0f0');
+    console.log(`✅ Performance monitoring started (${mode.toUpperCase()} mode)`);
+    uiNotify(`✅ Monitoring: ${mode.toUpperCase()}`, '#0f0');
   }
 
   /**
@@ -398,6 +434,7 @@ class SimpleSFUClient {
     if (!this.performanceMonitor) return null;
     
     return {
+      mode: this.E2EE_ENABLED ? 'E2EE' : 'BASELINE',
       performance: this.performanceMonitor.getSummary(),
       resources: this.resourceMonitor ? this.resourceMonitor.getSummary() : null
     };
@@ -418,10 +455,7 @@ class SimpleSFUClient {
       this.resourceMonitor.downloadData(format);
     }
     
-    console.log(`✅ Exported results as ${format.toUpperCase()}`);
-  } 
-  
-
+    const mode = this.E2EE_ENABLED ? 'E2EE' : 'BASELINE';
+    console.log(`✅ Exported ${mode} results as ${format.toUpperCase()}`);
+  }
 }
-
-

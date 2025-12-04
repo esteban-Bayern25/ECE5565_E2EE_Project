@@ -1,16 +1,26 @@
 /**
- * Performance Monitor for WebRTC E2EE Evaluation
- * Collects metrics: latency, jitter, packet loss, bitrate, CPU usage
+ * Enhanced Performance Monitor for WebRTC E2EE Evaluation
+ * Supports monitoring multiple peer connections (local + consumers)
+ * Collects: latency, jitter, packet loss, bitrate, frame rate
  */
 
 class PerformanceMonitor {
-  constructor(peerConnection, options = {}) {
-    this.pc = peerConnection;
+  constructor(options = {}) {
     this.sessionId = options.sessionId || `session-${Date.now()}`;
     this.interval = options.interval || 1000; // 1 second default
     this.isMonitoring = false;
     this.statsHistory = [];
     this.startTime = null;
+    
+    // Track peer connections
+    this.localPeer = null;
+    this.consumers = new Map(); // consumerId -> RTCPeerConnection
+    
+    // Previous stats for delta calculations
+    this.prevStats = {
+      inbound: {},
+      outbound: {}
+    };
     
     // Storage for computed metrics
     this.metrics = {
@@ -21,6 +31,30 @@ class PerformanceMonitor {
       frameRate: [],
       cpu: []
     };
+  }
+
+  /**
+   * Set the local peer connection
+   */
+  setLocalPeer(peerConnection) {
+    this.localPeer = peerConnection;
+    console.log('[PerformanceMonitor] Local peer connection set');
+  }
+
+  /**
+   * Add a consumer connection to monitor
+   */
+  addConsumer(consumerId, peerConnection) {
+    this.consumers.set(consumerId, peerConnection);
+    console.log(`[PerformanceMonitor] Added consumer: ${consumerId} (total: ${this.consumers.size})`);
+  }
+
+  /**
+   * Remove a consumer connection
+   */
+  removeConsumer(consumerId) {
+    this.consumers.delete(consumerId);
+    console.log(`[PerformanceMonitor] Removed consumer: ${consumerId}`);
   }
 
   /**
@@ -50,13 +84,10 @@ class PerformanceMonitor {
   }
 
   /**
-   * Collect WebRTC stats snapshot
+   * Collect WebRTC stats from all connections
    */
   async collectStats() {
-    if (!this.pc) return;
-
     try {
-      const stats = await this.pc.getStats();
       const timestamp = Date.now();
       const snapshot = {
         timestamp,
@@ -64,51 +95,92 @@ class PerformanceMonitor {
         inbound: {},
         outbound: {},
         candidate: {},
-        transport: {}
+        transport: {},
+        consumers: this.consumers.size
       };
 
-      stats.forEach(report => {
-        switch (report.type) {
-          case 'inbound-rtp':
-            if (report.mediaType === 'video') {
-              snapshot.inbound.video = this.extractInboundStats(report);
-            } else if (report.mediaType === 'audio') {
-              snapshot.inbound.audio = this.extractInboundStats(report);
-            }
-            break;
-            
-          case 'outbound-rtp':
-            if (report.mediaType === 'video') {
-              snapshot.outbound.video = this.extractOutboundStats(report);
-            } else if (report.mediaType === 'audio') {
-              snapshot.outbound.audio = this.extractOutboundStats(report);
-            }
-            break;
-            
-          case 'candidate-pair':
-            if (report.state === 'succeeded' || report.nominated) {
-              snapshot.candidate = this.extractCandidateStats(report);
-            }
-            break;
-            
-          case 'transport':
-            snapshot.transport = this.extractTransportStats(report);
-            break;
-        }
-      });
+      // Collect from local peer (outbound + latency)
+      if (this.localPeer) {
+        await this.collectLocalStats(snapshot);
+      }
+
+      // Collect from all consumers (inbound)
+      for (const [consumerId, pc] of this.consumers) {
+        await this.collectConsumerStats(snapshot, consumerId, pc);
+      }
 
       this.statsHistory.push(snapshot);
       
       // Calculate derived metrics
       this.calculateMetrics(snapshot);
       
-      // Optional: log to console
+      // Optional: log to console every 10 samples
       if (this.statsHistory.length % 10 === 0) {
-        console.log(`[Stats] Sample #${this.statsHistory.length}`, this.getSummary());
+        console.log(`[Stats] Sample #${this.statsHistory.length}`, snapshot);
       }
     } catch (error) {
       console.error('[PerformanceMonitor] Error collecting stats:', error);
     }
+  }
+
+  /**
+   * Collect stats from local peer (outbound + candidate pair)
+   */
+  async collectLocalStats(snapshot) {
+    if (!this.localPeer) return;
+
+    const stats = await this.localPeer.getStats();
+    
+    stats.forEach(report => {
+      switch (report.type) {
+        case 'outbound-rtp':
+          if (report.mediaType === 'video') {
+            snapshot.outbound.video = this.extractOutboundStats(report);
+          } else if (report.mediaType === 'audio') {
+            snapshot.outbound.audio = this.extractOutboundStats(report);
+          }
+          break;
+          
+        case 'candidate-pair':
+          if (report.state === 'succeeded' || report.nominated) {
+            snapshot.candidate = this.extractCandidateStats(report);
+          }
+          break;
+          
+        case 'transport':
+          snapshot.transport = this.extractTransportStats(report);
+          break;
+      }
+    });
+  }
+
+  /**
+   * Collect stats from consumer connections (inbound)
+   */
+  async collectConsumerStats(snapshot, consumerId, pc) {
+    if (!pc) return;
+
+    const stats = await pc.getStats();
+    
+    stats.forEach(report => {
+      if (report.type === 'inbound-rtp') {
+        if (report.mediaType === 'video') {
+          if (!snapshot.inbound.video) {
+            snapshot.inbound.video = this.extractInboundStats(report);
+          } else {
+            // Aggregate multiple video streams
+            this.aggregateInboundStats(snapshot.inbound.video, report);
+          }
+        } else if (report.mediaType === 'audio') {
+          if (!snapshot.inbound.audio) {
+            snapshot.inbound.audio = this.extractInboundStats(report);
+          } else {
+            // Aggregate multiple audio streams
+            this.aggregateInboundStats(snapshot.inbound.audio, report);
+          }
+        }
+      }
+    });
   }
 
   /**
@@ -125,6 +197,26 @@ class PerformanceMonitor {
       framesPerSecond: report.framesPerSecond || 0,
       timestamp: report.timestamp
     };
+  }
+
+  /**
+   * Aggregate stats from multiple inbound streams
+   */
+  aggregateInboundStats(existing, report) {
+    existing.packetsReceived += report.packetsReceived || 0;
+    existing.packetsLost += report.packetsLost || 0;
+    existing.bytesReceived += report.bytesReceived || 0;
+    
+    // For jitter, take the maximum (worst case)
+    existing.jitter = Math.max(existing.jitter, report.jitter || 0);
+    
+    existing.framesDecoded += report.framesDecoded || 0;
+    existing.framesDropped += report.framesDropped || 0;
+    
+    // For FPS, take the average
+    if (report.framesPerSecond) {
+      existing.framesPerSecond = (existing.framesPerSecond + report.framesPerSecond) / 2;
+    }
   }
 
   /**
@@ -167,117 +259,112 @@ class PerformanceMonitor {
   }
 
   /**
-   * Calculate derived metrics from current and previous snapshots
+   * Calculate derived metrics from snapshot
    */
-  calculateMetrics(currentSnapshot) {
-    if (this.statsHistory.length < 2) return;
+  calculateMetrics(snapshot) {
+    const ts = snapshot.timestamp;
 
-    const previousSnapshot = this.statsHistory[this.statsHistory.length - 2];
-    const timeDelta = (currentSnapshot.timestamp - previousSnapshot.timestamp) / 1000; // seconds
-
-    // Latency (RTT from candidate pair)
-    if (currentSnapshot.candidate.currentRoundTripTime) {
-      const rttMs = currentSnapshot.candidate.currentRoundTripTime * 1000;
-      this.metrics.latency.push({
-        timestamp: currentSnapshot.timestamp,
-        value: rttMs
-      });
+    // LATENCY: from candidate pair RTT
+    if (snapshot.candidate.currentRoundTripTime !== undefined) {
+      const latencyMs = snapshot.candidate.currentRoundTripTime * 1000;
+      this.metrics.latency.push({ timestamp: ts, value: latencyMs });
     }
 
-    // Jitter (from inbound video)
-    if (currentSnapshot.inbound.video?.jitter !== undefined) {
-      const jitterMs = currentSnapshot.inbound.video.jitter * 1000;
-      this.metrics.jitter.push({
-        timestamp: currentSnapshot.timestamp,
-        value: jitterMs
-      });
+    // JITTER: from inbound video (in seconds, convert to ms)
+    if (snapshot.inbound.video?.jitter !== undefined) {
+      const jitterMs = snapshot.inbound.video.jitter * 1000;
+      this.metrics.jitter.push({ timestamp: ts, value: jitterMs });
     }
 
-    // Packet Loss Rate
-    if (currentSnapshot.inbound.video) {
-      const curr = currentSnapshot.inbound.video;
-      const prev = previousSnapshot.inbound.video;
+    // PACKET LOSS: calculate from inbound stats
+    if (snapshot.inbound.video) {
+      const received = snapshot.inbound.video.packetsReceived || 0;
+      const lost = snapshot.inbound.video.packetsLost || 0;
+      const total = received + lost;
       
-      if (curr && prev) {
-        const packetsReceived = curr.packetsReceived - prev.packetsReceived;
-        const packetsLost = curr.packetsLost - prev.packetsLost;
-        const totalPackets = packetsReceived + packetsLost;
-        
-        const lossRate = totalPackets > 0 ? (packetsLost / totalPackets) * 100 : 0;
-        
-        this.metrics.packetLoss.push({
-          timestamp: currentSnapshot.timestamp,
-          value: lossRate,
-          packetsLost,
-          packetsReceived
-        });
+      if (total > 0) {
+        const lossPercent = (lost / total) * 100;
+        this.metrics.packetLoss.push({ timestamp: ts, value: lossPercent });
       }
     }
 
-    // Bitrate (incoming video)
-    if (currentSnapshot.inbound.video && previousSnapshot.inbound.video) {
-      const bytesDelta = currentSnapshot.inbound.video.bytesReceived - 
-                        previousSnapshot.inbound.video.bytesReceived;
-      const bitrateKbps = (bytesDelta * 8) / (timeDelta * 1000);
+    // BITRATE: calculate from bytes delta
+    if (snapshot.inbound.video && this.prevStats.inbound.video) {
+      const bytesDelta = snapshot.inbound.video.bytesReceived - this.prevStats.inbound.video.bytesReceived;
+      const timeDelta = (snapshot.timestamp - this.prevStats.timestamp) / 1000; // seconds
       
-      this.metrics.bitrate.push({
-        timestamp: currentSnapshot.timestamp,
-        value: bitrateKbps
+      if (timeDelta > 0) {
+        const bitrateKbps = (bytesDelta * 8) / (timeDelta * 1000); // kbps
+        this.metrics.bitrate.push({ timestamp: ts, value: bitrateKbps });
+      }
+    }
+
+    // FRAME RATE: from inbound video
+    if (snapshot.inbound.video?.framesPerSecond !== undefined) {
+      this.metrics.frameRate.push({ 
+        timestamp: ts, 
+        value: snapshot.inbound.video.framesPerSecond 
       });
     }
 
-    // Frame Rate
-    if (currentSnapshot.inbound.video?.framesPerSecond) {
-      this.metrics.frameRate.push({
-        timestamp: currentSnapshot.timestamp,
-        value: currentSnapshot.inbound.video.framesPerSecond
-      });
-    }
-  }
-
-  /**
-   * Calculate statistical summary (mean, P50, P95, P99)
-   */
-  calculateStats(dataArray) {
-    if (!dataArray || dataArray.length === 0) {
-      return { mean: 0, p50: 0, p95: 0, p99: 0, min: 0, max: 0 };
-    }
-
-    const values = dataArray.map(d => d.value).sort((a, b) => a - b);
-    const len = values.length;
-
-    const sum = values.reduce((acc, val) => acc + val, 0);
-    const mean = sum / len;
-
-    const p50Index = Math.floor(len * 0.50);
-    const p95Index = Math.floor(len * 0.95);
-    const p99Index = Math.floor(len * 0.99);
-
-    return {
-      mean: mean.toFixed(2),
-      p50: values[p50Index].toFixed(2),
-      p95: values[p95Index].toFixed(2),
-      p99: values[p99Index].toFixed(2),
-      min: values[0].toFixed(2),
-      max: values[len - 1].toFixed(2),
-      count: len
+    // Store current stats for next delta calculation
+    this.prevStats = {
+      timestamp: ts,
+      inbound: JSON.parse(JSON.stringify(snapshot.inbound)),
+      outbound: JSON.parse(JSON.stringify(snapshot.outbound))
     };
   }
 
   /**
-   * Get summary of all metrics
+   * Calculate percentile
+   */
+  calculatePercentile(values, percentile) {
+    if (values.length === 0) return 0;
+    
+    const sorted = [...values].sort((a, b) => a - b);
+    const index = Math.ceil((percentile / 100) * sorted.length) - 1;
+    return sorted[Math.max(0, index)];
+  }
+
+  /**
+   * Get summary statistics
    */
   getSummary() {
-    return {
+    const summary = {
       sessionId: this.sessionId,
       duration: Date.now() - this.startTime,
       samples: this.statsHistory.length,
-      latency: this.calculateStats(this.metrics.latency),
-      jitter: this.calculateStats(this.metrics.jitter),
-      packetLoss: this.calculateStats(this.metrics.packetLoss),
-      bitrate: this.calculateStats(this.metrics.bitrate),
-      frameRate: this.calculateStats(this.metrics.frameRate)
+      consumers: this.consumers.size
     };
+
+    // Calculate stats for each metric
+    ['latency', 'jitter', 'packetLoss', 'bitrate', 'frameRate'].forEach(metric => {
+      const values = this.metrics[metric].map(m => m.value);
+      
+      if (values.length > 0) {
+        summary[metric] = {
+          mean: (values.reduce((a, b) => a + b, 0) / values.length).toFixed(2),
+          p50: this.calculatePercentile(values, 50).toFixed(2),
+          p95: this.calculatePercentile(values, 95).toFixed(2),
+          p99: this.calculatePercentile(values, 99).toFixed(2),
+          min: Math.min(...values).toFixed(2),
+          max: Math.max(...values).toFixed(2),
+          count: values.length
+        };
+      } else {
+        summary[metric] = {
+          mean: 0,
+          p50: 0,
+          p95: 0,
+          p99: 0,
+          min: 0,
+          max: 0,
+          count: 0
+        };
+      }
+    });
+
+    return summary;
   }
 
   /**
@@ -290,6 +377,7 @@ class PerformanceMonitor {
       endTime: Date.now(),
       duration: Date.now() - this.startTime,
       interval: this.interval,
+      consumers: this.consumers.size,
       rawStats: this.statsHistory,
       metrics: this.metrics,
       summary: this.getSummary()
@@ -297,56 +385,43 @@ class PerformanceMonitor {
   }
 
   /**
-   * Export data as CSV string
+   * Export data as CSV
    */
   exportCSV() {
-    const headers = [
-      'timestamp',
-      'elapsed_ms',
-      'latency_ms',
-      'jitter_ms',
-      'packet_loss_pct',
-      'bitrate_kbps',
-      'frame_rate_fps'
-    ];
-
-    let csv = headers.join(',') + '\n';
-
-    this.statsHistory.forEach((snapshot, index) => {
-      const latency = this.metrics.latency[index]?.value || '';
-      const jitter = this.metrics.jitter[index]?.value || '';
-      const packetLoss = this.metrics.packetLoss[index]?.value || '';
-      const bitrate = this.metrics.bitrate[index]?.value || '';
-      const frameRate = this.metrics.frameRate[index]?.value || '';
-
+    const lines = ['timestamp,elapsed,latency,jitter,packetLoss,bitrate,frameRate'];
+    
+    this.statsHistory.forEach(snapshot => {
       const row = [
         snapshot.timestamp,
         snapshot.elapsed,
-        latency,
-        jitter,
-        packetLoss,
-        bitrate,
-        frameRate
+        snapshot.candidate.currentRoundTripTime ? (snapshot.candidate.currentRoundTripTime * 1000).toFixed(2) : '',
+        snapshot.inbound.video?.jitter ? (snapshot.inbound.video.jitter * 1000).toFixed(2) : '',
+        snapshot.inbound.video ? this.calculatePacketLoss(snapshot.inbound.video) : '',
+        '', // bitrate needs delta calculation
+        snapshot.inbound.video?.framesPerSecond || ''
       ];
-
-      csv += row.join(',') + '\n';
+      lines.push(row.join(','));
     });
+    
+    return lines.join('\n');
+  }
 
-    return csv;
+  /**
+   * Calculate packet loss percentage
+   */
+  calculatePacketLoss(stats) {
+    const received = stats.packetsReceived || 0;
+    const lost = stats.packetsLost || 0;
+    const total = received + lost;
+    return total > 0 ? ((lost / total) * 100).toFixed(2) : '0';
   }
 
   /**
    * Download data as file
    */
   downloadData(format = 'json') {
-    const data = format === 'json' ? 
-      JSON.stringify(this.exportJSON(), null, 2) : 
-      this.exportCSV();
-    
-    const blob = new Blob([data], { 
-      type: format === 'json' ? 'application/json' : 'text/csv' 
-    });
-    
+    const data = format === 'csv' ? this.exportCSV() : JSON.stringify(this.exportJSON(), null, 2);
+    const blob = new Blob([data], { type: format === 'csv' ? 'text/csv' : 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -356,36 +431,6 @@ class PerformanceMonitor {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
     
-    console.log(`[PerformanceMonitor] Downloaded ${format.toUpperCase()} data`);
+    console.log(`[PerformanceMonitor] Downloaded ${format.toUpperCase()}: ${a.download}`);
   }
-
-  /**
-   * Send data to server for storage
-   */
-  async uploadData(endpoint = '/api/performance') {
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(this.exportJSON())
-      });
-
-      if (response.ok) {
-        console.log('[PerformanceMonitor] Data uploaded successfully');
-        return await response.json();
-      } else {
-        throw new Error(`Upload failed: ${response.status}`);
-      }
-    } catch (error) {
-      console.error('[PerformanceMonitor] Upload error:', error);
-      throw error;
-    }
-  }
-}
-
-// Export for use in other modules
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = PerformanceMonitor;
 }

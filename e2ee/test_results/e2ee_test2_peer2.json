@@ -1,0 +1,5614 @@
+{
+  "sessionId": "e2ee-test-4448cd66-4fe0-4747-bc50-2b913805ad27",
+  "startTime": 1764861198408,
+  "endTime": 1764861271870,
+  "duration": 73462,
+  "interval": 1000,
+  "consumers": 2,
+  "rawStats": [
+    {
+      "timestamp": 1764861199408,
+      "elapsed": 1000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 194,
+          "packetsLost": 0,
+          "bytesReceived": 14346,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861199409.739
+        },
+        "video": {
+          "packetsReceived": 193,
+          "packetsLost": 0,
+          "bytesReceived": 174296,
+          "jitter": 0.019,
+          "framesDecoded": 59,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861199409.739
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 134,
+          "bytesSent": 9494,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861199408.455
+        },
+        "video": {
+          "packetsSent": 400,
+          "bytesSent": 408297,
+          "framesSent": 39,
+          "framesPerSecond": 15,
+          "timestamp": 1764861199408.455
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.005,
+        "availableOutgoingBitrate": 3828307,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 440328,
+        "bytesReceived": 3214,
+        "timestamp": 1764861199408.455
+      },
+      "transport": {
+        "bytesSent": 440328,
+        "bytesReceived": 3214,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861199408.455
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861200409,
+      "elapsed": 2001,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 295,
+          "packetsLost": 0,
+          "bytesReceived": 21555,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861200410.612
+        },
+        "video": {
+          "packetsReceived": 304,
+          "packetsLost": 0,
+          "bytesReceived": 282743,
+          "jitter": 0.025,
+          "framesDecoded": 85,
+          "framesDropped": 0,
+          "framesPerSecond": 13,
+          "timestamp": 1764861200410.612
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 184,
+          "bytesSent": 12986,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861200409.134
+        },
+        "video": {
+          "packetsSent": 592,
+          "bytesSent": 613194,
+          "framesSent": 54,
+          "framesPerSecond": 15,
+          "timestamp": 1764861200409.134
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.005,
+        "availableOutgoingBitrate": 1344782,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 657559,
+        "bytesReceived": 4122,
+        "timestamp": 1764861200409.134
+      },
+      "transport": {
+        "bytesSent": 657559,
+        "bytesReceived": 4122,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861200409.134
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861201409,
+      "elapsed": 3001,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 395,
+          "packetsLost": 0,
+          "bytesReceived": 28921,
+          "jitter": 0.01,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861201409.962
+        },
+        "video": {
+          "packetsReceived": 455,
+          "packetsLost": 0,
+          "bytesReceived": 435411,
+          "jitter": 0.026,
+          "framesDecoded": 117,
+          "framesDropped": 0,
+          "framesPerSecond": 16,
+          "timestamp": 1764861201409.962
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 234,
+          "bytesSent": 16433,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861201409.084
+        },
+        "video": {
+          "packetsSent": 762,
+          "bytesSent": 792117,
+          "framesSent": 69,
+          "framesPerSecond": 15,
+          "timestamp": 1764861201409.084
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.001,
+        "availableOutgoingBitrate": 3065882,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 848208,
+        "bytesReceived": 5206,
+        "timestamp": 1764861201409.084
+      },
+      "transport": {
+        "bytesSent": 848208,
+        "bytesReceived": 5206,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861201409.084
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861202409,
+      "elapsed": 4001,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 495,
+          "packetsLost": 0,
+          "bytesReceived": 36248,
+          "jitter": 0.009,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861202409.733
+        },
+        "video": {
+          "packetsReceived": 593,
+          "packetsLost": 0,
+          "bytesReceived": 570758,
+          "jitter": 0.02,
+          "framesDecoded": 147,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861202409.733
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 284,
+          "bytesSent": 19873,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861202409.081
+        },
+        "video": {
+          "packetsSent": 954,
+          "bytesSent": 994638,
+          "framesSent": 84,
+          "framesPerSecond": 15,
+          "timestamp": 1764861202409.081
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.001,
+        "availableOutgoingBitrate": 3065882,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 1062941,
+        "bytesReceived": 6192,
+        "timestamp": 1764861202409.081
+      },
+      "transport": {
+        "bytesSent": 1062941,
+        "bytesReceived": 6192,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861202409.081
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861203415,
+      "elapsed": 5007,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 596,
+          "packetsLost": 0,
+          "bytesReceived": 43618,
+          "jitter": 0.01,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861203421.896
+        },
+        "video": {
+          "packetsReceived": 747,
+          "packetsLost": 0,
+          "bytesReceived": 721964,
+          "jitter": 0.019,
+          "framesDecoded": 179,
+          "framesDropped": 0,
+          "framesPerSecond": 15.5,
+          "timestamp": 1764861203421.896
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 335,
+          "bytesSent": 23403,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861203416.138
+        },
+        "video": {
+          "packetsSent": 1150,
+          "bytesSent": 1205436,
+          "framesSent": 99,
+          "framesPerSecond": 15,
+          "timestamp": 1764861203416.138
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.001,
+        "availableOutgoingBitrate": 3065882,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 1286301,
+        "bytesReceived": 7194,
+        "timestamp": 1764861203416.138
+      },
+      "transport": {
+        "bytesSent": 1286301,
+        "bytesReceived": 7194,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861203416.138
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861204408,
+      "elapsed": 6000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 693,
+          "packetsLost": 0,
+          "bytesReceived": 50750,
+          "jitter": 0.009,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861204409.575
+        },
+        "video": {
+          "packetsReceived": 907,
+          "packetsLost": 0,
+          "bytesReceived": 881579,
+          "jitter": 0.013,
+          "framesDecoded": 209,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861204409.575
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 384,
+          "bytesSent": 26902,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861204408.903
+        },
+        "video": {
+          "packetsSent": 1350,
+          "bytesSent": 1420607,
+          "framesSent": 114,
+          "framesPerSecond": 15,
+          "timestamp": 1764861204408.903
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.001,
+        "availableOutgoingBitrate": 3065882,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 1514117,
+        "bytesReceived": 8184,
+        "timestamp": 1764861204408.903
+      },
+      "transport": {
+        "bytesSent": 1514117,
+        "bytesReceived": 8184,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861204408.903
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861205408,
+      "elapsed": 7000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 794,
+          "packetsLost": 0,
+          "bytesReceived": 58078,
+          "jitter": 0.011,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861205409.396
+        },
+        "video": {
+          "packetsReceived": 1077,
+          "packetsLost": 0,
+          "bytesReceived": 1054327,
+          "jitter": 0.012,
+          "framesDecoded": 239,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861205409.396
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 434,
+          "bytesSent": 30456,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861205408.76
+        },
+        "video": {
+          "packetsSent": 1552,
+          "bytesSent": 1633010,
+          "framesSent": 129,
+          "framesPerSecond": 15,
+          "timestamp": 1764861205408.76
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.001,
+        "availableOutgoingBitrate": 3065882,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 1739256,
+        "bytesReceived": 9182,
+        "timestamp": 1764861205408.76
+      },
+      "transport": {
+        "bytesSent": 1739256,
+        "bytesReceived": 9182,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861205408.76
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861206409,
+      "elapsed": 8001,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 895,
+          "packetsLost": 0,
+          "bytesReceived": 65390,
+          "jitter": 0.01,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861206410.128
+        },
+        "video": {
+          "packetsReceived": 1257,
+          "packetsLost": 0,
+          "bytesReceived": 1235820,
+          "jitter": 0.015,
+          "framesDecoded": 269,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861206410.128
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 484,
+          "bytesSent": 33962,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861206409.132
+        },
+        "video": {
+          "packetsSent": 1752,
+          "bytesSent": 1846495,
+          "framesSent": 144,
+          "framesPerSecond": 15,
+          "timestamp": 1764861206409.132
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.014,
+        "availableOutgoingBitrate": 3065882,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 1965291,
+        "bytesReceived": 10168,
+        "timestamp": 1764861206409.132
+      },
+      "transport": {
+        "bytesSent": 1965291,
+        "bytesReceived": 10168,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861206409.132
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861207419,
+      "elapsed": 9011,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 995,
+          "packetsLost": 0,
+          "bytesReceived": 72666,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861207420.672
+        },
+        "video": {
+          "packetsReceived": 1455,
+          "packetsLost": 0,
+          "bytesReceived": 1435407,
+          "jitter": 0.016,
+          "framesDecoded": 300,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861207420.672
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 535,
+          "bytesSent": 37506,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861207419.568
+        },
+        "video": {
+          "packetsSent": 1948,
+          "bytesSent": 2057216,
+          "framesSent": 159,
+          "framesPerSecond": 15,
+          "timestamp": 1764861207419.568
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.014,
+        "availableOutgoingBitrate": 1556103,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 2188572,
+        "bytesReceived": 11124,
+        "timestamp": 1764861207419.568
+      },
+      "transport": {
+        "bytesSent": 2188572,
+        "bytesReceived": 11124,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861207419.568
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861208408,
+      "elapsed": 10000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1095,
+          "packetsLost": 0,
+          "bytesReceived": 79929,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861208409.425
+        },
+        "video": {
+          "packetsReceived": 1636,
+          "packetsLost": 0,
+          "bytesReceived": 1617053,
+          "jitter": 0.015,
+          "framesDecoded": 329,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861208409.425
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 584,
+          "bytesSent": 40887,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861208408.862
+        },
+        "video": {
+          "packetsSent": 2126,
+          "bytesSent": 2244375,
+          "framesSent": 174,
+          "framesPerSecond": 15,
+          "timestamp": 1764861208408.862
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.014,
+        "availableOutgoingBitrate": 2573705,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 2387555,
+        "bytesReceived": 12060,
+        "timestamp": 1764861208408.862
+      },
+      "transport": {
+        "bytesSent": 2387555,
+        "bytesReceived": 12060,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861208408.862
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861209409,
+      "elapsed": 11001,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1195,
+          "packetsLost": 0,
+          "bytesReceived": 87280,
+          "jitter": 0.011,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861209410.36
+        },
+        "video": {
+          "packetsReceived": 1837,
+          "packetsLost": 0,
+          "bytesReceived": 1825525,
+          "jitter": 0.014,
+          "framesDecoded": 359,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861209410.36
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 634,
+          "bytesSent": 44373,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861209409.297
+        },
+        "video": {
+          "packetsSent": 2322,
+          "bytesSent": 2453409,
+          "framesSent": 189,
+          "framesPerSecond": 15,
+          "timestamp": 1764861209409.297
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.008,
+        "availableOutgoingBitrate": 2594693,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 2608999,
+        "bytesReceived": 13070,
+        "timestamp": 1764861209409.297
+      },
+      "transport": {
+        "bytesSent": 2608999,
+        "bytesReceived": 13070,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861209409.297
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861210408,
+      "elapsed": 12000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1294,
+          "packetsLost": 0,
+          "bytesReceived": 94972,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861210409.245
+        },
+        "video": {
+          "packetsReceived": 2089,
+          "packetsLost": 0,
+          "bytesReceived": 2087108,
+          "jitter": 0.017,
+          "framesDecoded": 389,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861210409.245
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 684,
+          "bytesSent": 48099,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861210408.634
+        },
+        "video": {
+          "packetsSent": 2527,
+          "bytesSent": 2671910,
+          "framesSent": 204,
+          "framesPerSecond": 15,
+          "timestamp": 1764861210408.634
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.008,
+        "availableOutgoingBitrate": 2697982,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 2840510,
+        "bytesReceived": 14080,
+        "timestamp": 1764861210408.634
+      },
+      "transport": {
+        "bytesSent": 2840510,
+        "bytesReceived": 14080,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861210408.634
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861211409,
+      "elapsed": 13001,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1395,
+          "packetsLost": 0,
+          "bytesReceived": 103008,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861211409.88
+        },
+        "video": {
+          "packetsReceived": 2336,
+          "packetsLost": 0,
+          "bytesReceived": 2345257,
+          "jitter": 0.017,
+          "framesDecoded": 418,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861211409.88
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 734,
+          "bytesSent": 52075,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861211409.275
+        },
+        "video": {
+          "packetsSent": 2729,
+          "bytesSent": 2885596,
+          "framesSent": 219,
+          "framesPerSecond": 15,
+          "timestamp": 1764861211409.275
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.017,
+        "availableOutgoingBitrate": 2827711,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 3067284,
+        "bytesReceived": 15036,
+        "timestamp": 1764861211409.275
+      },
+      "transport": {
+        "bytesSent": 3067284,
+        "bytesReceived": 15036,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861211409.275
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861212416,
+      "elapsed": 14008,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1494,
+          "packetsLost": 0,
+          "bytesReceived": 110664,
+          "jitter": 0.011,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861212417.78
+        },
+        "video": {
+          "packetsReceived": 2639,
+          "packetsLost": 0,
+          "bytesReceived": 2660275,
+          "jitter": 0.018,
+          "framesDecoded": 449,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861212417.78
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 785,
+          "bytesSent": 55990,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861212416.931
+        },
+        "video": {
+          "packetsSent": 2928,
+          "bytesSent": 3097407,
+          "framesSent": 234,
+          "framesPerSecond": 15,
+          "timestamp": 1764861212416.931
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.017,
+        "availableOutgoingBitrate": 2866208,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 3292128,
+        "bytesReceived": 16030,
+        "timestamp": 1764861212416.931
+      },
+      "transport": {
+        "bytesSent": 3292128,
+        "bytesReceived": 16030,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861212416.931
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861213408,
+      "elapsed": 15000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1594,
+          "packetsLost": 0,
+          "bytesReceived": 118470,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861213410.59
+        },
+        "video": {
+          "packetsReceived": 2908,
+          "packetsLost": 0,
+          "bytesReceived": 2942135,
+          "jitter": 0.019,
+          "framesDecoded": 479,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861213410.59
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 834,
+          "bytesSent": 59821,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861213408.78
+        },
+        "video": {
+          "packetsSent": 3132,
+          "bytesSent": 3312560,
+          "framesSent": 249,
+          "framesPerSecond": 15,
+          "timestamp": 1764861213408.78
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.017,
+        "availableOutgoingBitrate": 2867260,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 3520254,
+        "bytesReceived": 16990,
+        "timestamp": 1764861213408.78
+      },
+      "transport": {
+        "bytesSent": 3520254,
+        "bytesReceived": 16990,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861213408.78
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861214408,
+      "elapsed": 16000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1694,
+          "packetsLost": 0,
+          "bytesReceived": 126302,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861214409.481
+        },
+        "video": {
+          "packetsReceived": 3224,
+          "packetsLost": 0,
+          "bytesReceived": 3272774,
+          "jitter": 0.017,
+          "framesDecoded": 509,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861214409.481
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 884,
+          "bytesSent": 63650,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861214408.793
+        },
+        "video": {
+          "packetsSent": 3328,
+          "bytesSent": 3523416,
+          "framesSent": 264,
+          "framesPerSecond": 15,
+          "timestamp": 1764861214408.793
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2867260,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 3743863,
+        "bytesReceived": 18092,
+        "timestamp": 1764861214408.793
+      },
+      "transport": {
+        "bytesSent": 3743863,
+        "bytesReceived": 18092,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861214408.793
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861215417,
+      "elapsed": 17009,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1796,
+          "packetsLost": 0,
+          "bytesReceived": 134362,
+          "jitter": 0.015,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861215418.478
+        },
+        "video": {
+          "packetsReceived": 3592,
+          "packetsLost": 0,
+          "bytesReceived": 3663424,
+          "jitter": 0.016,
+          "framesDecoded": 539,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861215418.478
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 935,
+          "bytesSent": 67622,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861215417.455
+        },
+        "video": {
+          "packetsSent": 3525,
+          "bytesSent": 3734648,
+          "framesSent": 279,
+          "framesPerSecond": 15,
+          "timestamp": 1764861215417.455
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2879065,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 3968117,
+        "bytesReceived": 19048,
+        "timestamp": 1764861215417.455
+      },
+      "transport": {
+        "bytesSent": 3968117,
+        "bytesReceived": 19048,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861215417.455
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861216409,
+      "elapsed": 18001,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1893,
+          "packetsLost": 0,
+          "bytesReceived": 142244,
+          "jitter": 0.01,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861216410.183
+        },
+        "video": {
+          "packetsReceived": 3928,
+          "packetsLost": 0,
+          "bytesReceived": 4023035,
+          "jitter": 0.015,
+          "framesDecoded": 568,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861216410.183
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 984,
+          "bytesSent": 71643,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861216409.117
+        },
+        "video": {
+          "packetsSent": 3728,
+          "bytesSent": 3950551,
+          "framesSent": 294,
+          "framesPerSecond": 16,
+          "timestamp": 1764861216409.117
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.005,
+        "availableOutgoingBitrate": 2879065,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 4197219,
+        "bytesReceived": 20004,
+        "timestamp": 1764861216409.117
+      },
+      "transport": {
+        "bytesSent": 4197219,
+        "bytesReceived": 20004,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861216409.117
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861217407,
+      "elapsed": 18999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 1993,
+          "packetsLost": 0,
+          "bytesReceived": 149905,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861217411.138
+        },
+        "video": {
+          "packetsReceived": 4311,
+          "packetsLost": 0,
+          "bytesReceived": 4431979,
+          "jitter": 0.015,
+          "framesDecoded": 598,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861217411.138
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1034,
+          "bytesSent": 75382,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861217409.314
+        },
+        "video": {
+          "packetsSent": 3919,
+          "bytesSent": 4152276,
+          "framesSent": 308,
+          "framesPerSecond": 14,
+          "timestamp": 1764861217409.314
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.005,
+        "availableOutgoingBitrate": 2879065,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 4411421,
+        "bytesReceived": 20974,
+        "timestamp": 1764861217409.314
+      },
+      "transport": {
+        "bytesSent": 4411421,
+        "bytesReceived": 20974,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861217409.314
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861218409,
+      "elapsed": 20001,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2094,
+          "packetsLost": 0,
+          "bytesReceived": 157282,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861218412.543
+        },
+        "video": {
+          "packetsReceived": 4713,
+          "packetsLost": 0,
+          "bytesReceived": 4860233,
+          "jitter": 0.017,
+          "framesDecoded": 627,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861218412.543
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1084,
+          "bytesSent": 78974,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861218410.865
+        },
+        "video": {
+          "packetsSent": 4131,
+          "bytesSent": 4378868,
+          "framesSent": 324,
+          "framesPerSecond": 15,
+          "timestamp": 1764861218410.865
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.005,
+        "availableOutgoingBitrate": 2879065,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 4651213,
+        "bytesReceived": 21898,
+        "timestamp": 1764861218410.865
+      },
+      "transport": {
+        "bytesSent": 4651213,
+        "bytesReceived": 21898,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861218410.865
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861219411,
+      "elapsed": 21003,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2194,
+          "packetsLost": 0,
+          "bytesReceived": 164833,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861219414.924
+        },
+        "video": {
+          "packetsReceived": 5117,
+          "packetsLost": 0,
+          "bytesReceived": 5293777,
+          "jitter": 0.014,
+          "framesDecoded": 657,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861219414.924
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1134,
+          "bytesSent": 82553,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861219412.688
+        },
+        "video": {
+          "packetsSent": 4338,
+          "bytesSent": 4598832,
+          "framesSent": 339,
+          "framesPerSecond": 15,
+          "timestamp": 1764861219412.688
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.006,
+        "availableOutgoingBitrate": 2904964,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 4884038,
+        "bytesReceived": 22960,
+        "timestamp": 1764861219412.688
+      },
+      "transport": {
+        "bytesSent": 4884038,
+        "bytesReceived": 22960,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861219412.688
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861220407,
+      "elapsed": 21999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2294,
+          "packetsLost": 0,
+          "bytesReceived": 172706,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861220409.768
+        },
+        "video": {
+          "packetsReceived": 5551,
+          "packetsLost": 0,
+          "bytesReceived": 5752520,
+          "jitter": 0.016,
+          "framesDecoded": 687,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861220409.768
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1184,
+          "bytesSent": 86368,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861220408.726
+        },
+        "video": {
+          "packetsSent": 4517,
+          "bytesSent": 4789777,
+          "framesSent": 353,
+          "framesPerSecond": 15,
+          "timestamp": 1764861220408.726
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.006,
+        "availableOutgoingBitrate": 2917151,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 5087198,
+        "bytesReceived": 23872,
+        "timestamp": 1764861220408.726
+      },
+      "transport": {
+        "bytesSent": 5087198,
+        "bytesReceived": 23872,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861220408.726
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861221413,
+      "elapsed": 23005,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2393,
+          "packetsLost": 0,
+          "bytesReceived": 180747,
+          "jitter": 0.016,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861221416.616
+        },
+        "video": {
+          "packetsReceived": 5921,
+          "packetsLost": 0,
+          "bytesReceived": 6148367,
+          "jitter": 0.014,
+          "framesDecoded": 717,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861221416.616
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1234,
+          "bytesSent": 90336,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861221415.257
+        },
+        "video": {
+          "packetsSent": 4736,
+          "bytesSent": 5021574,
+          "framesSent": 369,
+          "framesPerSecond": 15,
+          "timestamp": 1764861221415.257
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.009,
+        "availableOutgoingBitrate": 2921991,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 5332653,
+        "bytesReceived": 24850,
+        "timestamp": 1764861221415.257
+      },
+      "transport": {
+        "bytesSent": 5332653,
+        "bytesReceived": 24850,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861221415.257
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861222407,
+      "elapsed": 23999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2494,
+          "packetsLost": 0,
+          "bytesReceived": 188825,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861222409.466
+        },
+        "video": {
+          "packetsReceived": 6352,
+          "packetsLost": 0,
+          "bytesReceived": 6609990,
+          "jitter": 0.017,
+          "framesDecoded": 747,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861222409.466
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1284,
+          "bytesSent": 94289,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861222408.79
+        },
+        "video": {
+          "packetsSent": 4931,
+          "bytesSent": 5229274,
+          "framesSent": 384,
+          "framesPerSecond": 16,
+          "timestamp": 1764861222408.79
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.009,
+        "availableOutgoingBitrate": 2921991,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 5553266,
+        "bytesReceived": 25820,
+        "timestamp": 1764861222408.79
+      },
+      "transport": {
+        "bytesSent": 5553266,
+        "bytesReceived": 25820,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861222408.79
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861223410,
+      "elapsed": 25002,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2594,
+          "packetsLost": 0,
+          "bytesReceived": 196486,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861223414.027
+        },
+        "video": {
+          "packetsReceived": 6756,
+          "packetsLost": 0,
+          "bytesReceived": 7040087,
+          "jitter": 0.018,
+          "framesDecoded": 777,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861223414.027
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1334,
+          "bytesSent": 98066,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861223411.543
+        },
+        "video": {
+          "packetsSent": 5130,
+          "bytesSent": 5441410,
+          "framesSent": 399,
+          "framesPerSecond": 15,
+          "timestamp": 1764861223411.543
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.009,
+        "availableOutgoingBitrate": 2921991,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 5778329,
+        "bytesReceived": 26786,
+        "timestamp": 1764861223411.543
+      },
+      "transport": {
+        "bytesSent": 5778329,
+        "bytesReceived": 26786,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861223411.543
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861224423,
+      "elapsed": 26015,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2694,
+          "packetsLost": 0,
+          "bytesReceived": 204456,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861224427.341
+        },
+        "video": {
+          "packetsReceived": 7155,
+          "packetsLost": 0,
+          "bytesReceived": 7469309,
+          "jitter": 0.014,
+          "framesDecoded": 807,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861224427.341
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1385,
+          "bytesSent": 102218,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861224424.749
+        },
+        "video": {
+          "packetsSent": 5332,
+          "bytesSent": 5657102,
+          "framesSent": 414,
+          "framesPerSecond": 15,
+          "timestamp": 1764861224424.749
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.001,
+        "availableOutgoingBitrate": 2921991,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 6007323,
+        "bytesReceived": 27764,
+        "timestamp": 1764861224424.749
+      },
+      "transport": {
+        "bytesSent": 6007323,
+        "bytesReceived": 27764,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861224424.749
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861225408,
+      "elapsed": 27000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2795,
+          "packetsLost": 0,
+          "bytesReceived": 212151,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861225413.522
+        },
+        "video": {
+          "packetsReceived": 7552,
+          "packetsLost": 0,
+          "bytesReceived": 7894100,
+          "jitter": 0.01,
+          "framesDecoded": 837,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861225413.522
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1434,
+          "bytesSent": 105816,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861225410.363
+        },
+        "video": {
+          "packetsSent": 5521,
+          "bytesSent": 5856449,
+          "framesSent": 428,
+          "framesPerSecond": 14,
+          "timestamp": 1764861225410.363
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.001,
+        "availableOutgoingBitrate": 2921991,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 6218970,
+        "bytesReceived": 28750,
+        "timestamp": 1764861225410.363
+      },
+      "transport": {
+        "bytesSent": 6218970,
+        "bytesReceived": 28750,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861225410.363
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861226419,
+      "elapsed": 28011,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2895,
+          "packetsLost": 0,
+          "bytesReceived": 220090,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861226422.911
+        },
+        "video": {
+          "packetsReceived": 7953,
+          "packetsLost": 0,
+          "bytesReceived": 8323230,
+          "jitter": 0.014,
+          "framesDecoded": 867,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861226422.911
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1485,
+          "bytesSent": 109885,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861226421.353
+        },
+        "video": {
+          "packetsSent": 5737,
+          "bytesSent": 6086932,
+          "framesSent": 444,
+          "framesPerSecond": 15,
+          "timestamp": 1764861226421.353
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.001,
+        "availableOutgoingBitrate": 2921991,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 6463148,
+        "bytesReceived": 29816,
+        "timestamp": 1764861226421.353
+      },
+      "transport": {
+        "bytesSent": 6463148,
+        "bytesReceived": 29816,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861226421.353
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861227407,
+      "elapsed": 28999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 2993,
+          "packetsLost": 0,
+          "bytesReceived": 227800,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861227411.572
+        },
+        "video": {
+          "packetsReceived": 8276,
+          "packetsLost": 0,
+          "bytesReceived": 8667218,
+          "jitter": 0.016,
+          "framesDecoded": 893,
+          "framesDropped": 0,
+          "framesPerSecond": 13,
+          "timestamp": 1764861227411.572
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1534,
+          "bytesSent": 113848,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861227409.69
+        },
+        "video": {
+          "packetsSent": 5913,
+          "bytesSent": 6271997,
+          "framesSent": 458,
+          "framesPerSecond": 14,
+          "timestamp": 1764861227409.69
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.006,
+        "availableOutgoingBitrate": 1365424,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 6660296,
+        "bytesReceived": 30720,
+        "timestamp": 1764861227409.69
+      },
+      "transport": {
+        "bytesSent": 6660296,
+        "bytesReceived": 30720,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861227409.69
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861228408,
+      "elapsed": 30000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3095,
+          "packetsLost": 0,
+          "bytesReceived": 236014,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861228410.92
+        },
+        "video": {
+          "packetsReceived": 8699,
+          "packetsLost": 0,
+          "bytesReceived": 9118121,
+          "jitter": 0.028,
+          "framesDecoded": 923,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861228410.92
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1584,
+          "bytesSent": 117769,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861228409.706
+        },
+        "video": {
+          "packetsSent": 6064,
+          "bytesSent": 6430010,
+          "framesSent": 473,
+          "framesPerSecond": 15,
+          "timestamp": 1764861228409.706
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.006,
+        "availableOutgoingBitrate": 2376470,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 6830003,
+        "bytesReceived": 31732,
+        "timestamp": 1764861228409.706
+      },
+      "transport": {
+        "bytesSent": 6830003,
+        "bytesReceived": 31732,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861228409.706
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861229406,
+      "elapsed": 30998,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3195,
+          "packetsLost": 0,
+          "bytesReceived": 243696,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861229409.383
+        },
+        "video": {
+          "packetsReceived": 9124,
+          "packetsLost": 0,
+          "bytesReceived": 9574642,
+          "jitter": 0.017,
+          "framesDecoded": 953,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861229409.383
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1634,
+          "bytesSent": 121483,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861229408.353
+        },
+        "video": {
+          "packetsSent": 6267,
+          "bytesSent": 6648032,
+          "framesSent": 488,
+          "framesPerSecond": 15,
+          "timestamp": 1764861229408.353
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.006,
+        "availableOutgoingBitrate": 2393911,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 7060901,
+        "bytesReceived": 32656,
+        "timestamp": 1764861229408.353
+      },
+      "transport": {
+        "bytesSent": 7060901,
+        "bytesReceived": 32656,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861229408.353
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861230408,
+      "elapsed": 32000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3295,
+          "packetsLost": 0,
+          "bytesReceived": 251739,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861230410.893
+        },
+        "video": {
+          "packetsReceived": 9548,
+          "packetsLost": 0,
+          "bytesReceived": 10029219,
+          "jitter": 0.019,
+          "framesDecoded": 983,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861230410.893
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1684,
+          "bytesSent": 125416,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861230409.943
+        },
+        "video": {
+          "packetsSent": 6464,
+          "bytesSent": 6860154,
+          "framesSent": 503,
+          "framesPerSecond": 15,
+          "timestamp": 1764861230409.943
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.006,
+        "availableOutgoingBitrate": 2596696,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 7285898,
+        "bytesReceived": 33712,
+        "timestamp": 1764861230409.943
+      },
+      "transport": {
+        "bytesSent": 7285898,
+        "bytesReceived": 33712,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861230409.943
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861231407,
+      "elapsed": 32999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3394,
+          "packetsLost": 0,
+          "bytesReceived": 259293,
+          "jitter": 0.015,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861231409.707
+        },
+        "video": {
+          "packetsReceived": 9950,
+          "packetsLost": 0,
+          "bytesReceived": 10456802,
+          "jitter": 0.018,
+          "framesDecoded": 1013,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861231409.707
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1734,
+          "bytesSent": 129383,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861231408.547
+        },
+        "video": {
+          "packetsSent": 6665,
+          "bytesSent": 7075793,
+          "framesSent": 518,
+          "framesPerSecond": 15,
+          "timestamp": 1764861231408.547
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.006,
+        "availableOutgoingBitrate": 2809197,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 7514582,
+        "bytesReceived": 34706,
+        "timestamp": 1764861231408.547
+      },
+      "transport": {
+        "bytesSent": 7514582,
+        "bytesReceived": 34706,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861231408.547
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861232407,
+      "elapsed": 33999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3494,
+          "packetsLost": 0,
+          "bytesReceived": 267240,
+          "jitter": 0.011,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861232410.279
+        },
+        "video": {
+          "packetsReceived": 10366,
+          "packetsLost": 0,
+          "bytesReceived": 10902419,
+          "jitter": 0.017,
+          "framesDecoded": 1043,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861232410.279
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1784,
+          "bytesSent": 133301,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861232409.15
+        },
+        "video": {
+          "packetsSent": 6864,
+          "bytesSent": 7287978,
+          "framesSent": 533,
+          "framesPerSecond": 15,
+          "timestamp": 1764861232409.15
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.009,
+        "availableOutgoingBitrate": 2843395,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 7739781,
+        "bytesReceived": 35696,
+        "timestamp": 1764861232409.15
+      },
+      "transport": {
+        "bytesSent": 7739781,
+        "bytesReceived": 35696,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861232409.15
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861233419,
+      "elapsed": 35011,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3595,
+          "packetsLost": 0,
+          "bytesReceived": 275224,
+          "jitter": 0.011,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861233424.008
+        },
+        "video": {
+          "packetsReceived": 10807,
+          "packetsLost": 0,
+          "bytesReceived": 11375495,
+          "jitter": 0.018,
+          "framesDecoded": 1074,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861233424.008
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1835,
+          "bytesSent": 137300,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861233421.416
+        },
+        "video": {
+          "packetsSent": 7066,
+          "bytesSent": 7501896,
+          "framesSent": 548,
+          "framesPerSecond": 15,
+          "timestamp": 1764861233421.416
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.009,
+        "availableOutgoingBitrate": 2843395,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 7966918,
+        "bytesReceived": 36694,
+        "timestamp": 1764861233421.416
+      },
+      "transport": {
+        "bytesSent": 7966918,
+        "bytesReceived": 36694,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861233421.416
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861234407,
+      "elapsed": 35999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3694,
+          "packetsLost": 0,
+          "bytesReceived": 283207,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861234409.635
+        },
+        "video": {
+          "packetsReceived": 11194,
+          "packetsLost": 0,
+          "bytesReceived": 11789285,
+          "jitter": 0.018,
+          "framesDecoded": 1103,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861234409.635
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1884,
+          "bytesSent": 141303,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861234408.789
+        },
+        "video": {
+          "packetsSent": 7266,
+          "bytesSent": 7716268,
+          "framesSent": 563,
+          "framesPerSecond": 15,
+          "timestamp": 1764861234408.789
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2853615,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 8194369,
+        "bytesReceived": 37676,
+        "timestamp": 1764861234408.789
+      },
+      "transport": {
+        "bytesSent": 8194369,
+        "bytesReceived": 37676,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861234408.789
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861235408,
+      "elapsed": 37000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3793,
+          "packetsLost": 0,
+          "bytesReceived": 290945,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861235410.605
+        },
+        "video": {
+          "packetsReceived": 11589,
+          "packetsLost": 0,
+          "bytesReceived": 12210463,
+          "jitter": 0.017,
+          "framesDecoded": 1134,
+          "framesDropped": 0,
+          "framesPerSecond": 15.5,
+          "timestamp": 1764861235410.605
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1934,
+          "bytesSent": 145117,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861235409.537
+        },
+        "video": {
+          "packetsSent": 7464,
+          "bytesSent": 7927372,
+          "framesSent": 578,
+          "framesPerSecond": 15,
+          "timestamp": 1764861235409.537
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2859951,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 8418403,
+        "bytesReceived": 38700,
+        "timestamp": 1764861235409.537
+      },
+      "transport": {
+        "bytesSent": 8418403,
+        "bytesReceived": 38700,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861235409.537
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861236407,
+      "elapsed": 37999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3895,
+          "packetsLost": 0,
+          "bytesReceived": 299071,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861236409.943
+        },
+        "video": {
+          "packetsReceived": 12000,
+          "packetsLost": 0,
+          "bytesReceived": 12653187,
+          "jitter": 0.017,
+          "framesDecoded": 1163,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861236409.943
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 1984,
+          "bytesSent": 149182,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861236408.982
+        },
+        "video": {
+          "packetsSent": 7667,
+          "bytesSent": 8142478,
+          "framesSent": 593,
+          "framesPerSecond": 15,
+          "timestamp": 1764861236408.982
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2863522,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 8646720,
+        "bytesReceived": 39756,
+        "timestamp": 1764861236408.982
+      },
+      "transport": {
+        "bytesSent": 8646720,
+        "bytesReceived": 39756,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861236408.982
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861237407,
+      "elapsed": 38999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 3996,
+          "packetsLost": 0,
+          "bytesReceived": 307173,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861237410.29
+        },
+        "video": {
+          "packetsReceived": 12423,
+          "packetsLost": 0,
+          "bytesReceived": 13101898,
+          "jitter": 0.014,
+          "framesDecoded": 1193,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861237410.29
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2034,
+          "bytesSent": 153138,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861237409.423
+        },
+        "video": {
+          "packetsSent": 7869,
+          "bytesSent": 8357149,
+          "framesSent": 608,
+          "framesPerSecond": 15,
+          "timestamp": 1764861237409.423
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.008,
+        "availableOutgoingBitrate": 2876395,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 8874545,
+        "bytesReceived": 40718,
+        "timestamp": 1764861237409.423
+      },
+      "transport": {
+        "bytesSent": 8874545,
+        "bytesReceived": 40718,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861237409.423
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861238407,
+      "elapsed": 39999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4094,
+          "packetsLost": 0,
+          "bytesReceived": 314600,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861238412.08
+        },
+        "video": {
+          "packetsReceived": 12829,
+          "packetsLost": 0,
+          "bytesReceived": 13534706,
+          "jitter": 0.014,
+          "framesDecoded": 1224,
+          "framesDropped": 0,
+          "framesPerSecond": 15.5,
+          "timestamp": 1764861238412.08
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2084,
+          "bytesSent": 156989,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861238409.8
+        },
+        "video": {
+          "packetsSent": 8065,
+          "bytesSent": 8567614,
+          "framesSent": 623,
+          "framesPerSecond": 15,
+          "timestamp": 1764861238409.8
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.008,
+        "availableOutgoingBitrate": 2876395,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 9097839,
+        "bytesReceived": 41634,
+        "timestamp": 1764861238409.8
+      },
+      "transport": {
+        "bytesSent": 9097839,
+        "bytesReceived": 41634,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861238409.8
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861239407,
+      "elapsed": 40999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4196,
+          "packetsLost": 0,
+          "bytesReceived": 322576,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861239409.571
+        },
+        "video": {
+          "packetsReceived": 13228,
+          "packetsLost": 0,
+          "bytesReceived": 13959879,
+          "jitter": 0.014,
+          "framesDecoded": 1253,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861239409.571
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2134,
+          "bytesSent": 160949,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861239408.566
+        },
+        "video": {
+          "packetsSent": 8266,
+          "bytesSent": 8782122,
+          "framesSent": 638,
+          "framesPerSecond": 15,
+          "timestamp": 1764861239408.566
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.005,
+        "availableOutgoingBitrate": 2876395,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 9325385,
+        "bytesReceived": 42608,
+        "timestamp": 1764861239408.566
+      },
+      "transport": {
+        "bytesSent": 9325385,
+        "bytesReceived": 42608,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861239408.566
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861240407,
+      "elapsed": 41999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4294,
+          "packetsLost": 0,
+          "bytesReceived": 330667,
+          "jitter": 0.016,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861240409.539
+        },
+        "video": {
+          "packetsReceived": 13618,
+          "packetsLost": 0,
+          "bytesReceived": 14375868,
+          "jitter": 0.013,
+          "framesDecoded": 1284,
+          "framesDropped": 0,
+          "framesPerSecond": 15.5,
+          "timestamp": 1764861240409.539
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2184,
+          "bytesSent": 165015,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861240408.624
+        },
+        "video": {
+          "packetsSent": 8464,
+          "bytesSent": 8993834,
+          "framesSent": 653,
+          "framesPerSecond": 15,
+          "timestamp": 1764861240408.624
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.005,
+        "availableOutgoingBitrate": 2876395,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 9550209,
+        "bytesReceived": 43528,
+        "timestamp": 1764861240408.624
+      },
+      "transport": {
+        "bytesSent": 9550209,
+        "bytesReceived": 43528,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861240408.624
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861241407,
+      "elapsed": 42999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4396,
+          "packetsLost": 0,
+          "bytesReceived": 338159,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861241409.675
+        },
+        "video": {
+          "packetsReceived": 14017,
+          "packetsLost": 0,
+          "bytesReceived": 14802655,
+          "jitter": 0.014,
+          "framesDecoded": 1313,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861241409.675
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2234,
+          "bytesSent": 168600,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861241408.723
+        },
+        "video": {
+          "packetsSent": 8666,
+          "bytesSent": 9209973,
+          "framesSent": 668,
+          "framesPerSecond": 15,
+          "timestamp": 1764861241408.723
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.005,
+        "availableOutgoingBitrate": 2885122,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 9779185,
+        "bytesReceived": 44514,
+        "timestamp": 1764861241408.723
+      },
+      "transport": {
+        "bytesSent": 9779185,
+        "bytesReceived": 44514,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861241408.723
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861242411,
+      "elapsed": 44003,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4494,
+          "packetsLost": 0,
+          "bytesReceived": 346024,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861242416.59
+        },
+        "video": {
+          "packetsReceived": 14419,
+          "packetsLost": 0,
+          "bytesReceived": 15230113,
+          "jitter": 0.016,
+          "framesDecoded": 1343,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861242416.59
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2284,
+          "bytesSent": 172616,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861242412.812
+        },
+        "video": {
+          "packetsSent": 8863,
+          "bytesSent": 9420891,
+          "framesSent": 683,
+          "framesPerSecond": 15,
+          "timestamp": 1764861242412.812
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.018,
+        "availableOutgoingBitrate": 2885122,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 10003077,
+        "bytesReceived": 45480,
+        "timestamp": 1764861242412.812
+      },
+      "transport": {
+        "bytesSent": 10003077,
+        "bytesReceived": 45480,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861242412.812
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861243407,
+      "elapsed": 44999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4593,
+          "packetsLost": 0,
+          "bytesReceived": 353773,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861243410.867
+        },
+        "video": {
+          "packetsReceived": 14822,
+          "packetsLost": 0,
+          "bytesReceived": 15656834,
+          "jitter": 0.02,
+          "framesDecoded": 1373,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861243410.867
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2334,
+          "bytesSent": 176398,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861243409.454
+        },
+        "video": {
+          "packetsSent": 9066,
+          "bytesSent": 9635851,
+          "framesSent": 698,
+          "framesPerSecond": 15,
+          "timestamp": 1764861243409.454
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.018,
+        "availableOutgoingBitrate": 2885122,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 10231035,
+        "bytesReceived": 46450,
+        "timestamp": 1764861243409.454
+      },
+      "transport": {
+        "bytesSent": 10231035,
+        "bytesReceived": 46450,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861243409.454
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861244407,
+      "elapsed": 45999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4696,
+          "packetsLost": 0,
+          "bytesReceived": 362060,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861244417.392
+        },
+        "video": {
+          "packetsReceived": 15224,
+          "packetsLost": 0,
+          "bytesReceived": 16083159,
+          "jitter": 0.017,
+          "framesDecoded": 1404,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861244417.392
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2384,
+          "bytesSent": 180422,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861244409.191
+        },
+        "video": {
+          "packetsSent": 9264,
+          "bytesSent": 9848443,
+          "framesSent": 713,
+          "framesPerSecond": 15,
+          "timestamp": 1764861244409.191
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.008,
+        "availableOutgoingBitrate": 2885122,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 10456627,
+        "bytesReceived": 47404,
+        "timestamp": 1764861244409.191
+      },
+      "transport": {
+        "bytesSent": 10456627,
+        "bytesReceived": 47404,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861244409.191
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861245407,
+      "elapsed": 46999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4795,
+          "packetsLost": 0,
+          "bytesReceived": 369873,
+          "jitter": 0.015,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861245410.894
+        },
+        "video": {
+          "packetsReceived": 15626,
+          "packetsLost": 0,
+          "bytesReceived": 16511028,
+          "jitter": 0.014,
+          "framesDecoded": 1433,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861245410.894
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2434,
+          "bytesSent": 184276,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861245409.356
+        },
+        "video": {
+          "packetsSent": 9463,
+          "bytesSent": 10062293,
+          "framesSent": 728,
+          "framesPerSecond": 15,
+          "timestamp": 1764861245409.356
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.008,
+        "availableOutgoingBitrate": 2885122,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 10683427,
+        "bytesReceived": 48390,
+        "timestamp": 1764861245409.356
+      },
+      "transport": {
+        "bytesSent": 10683427,
+        "bytesReceived": 48390,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861245409.356
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861246408,
+      "elapsed": 48000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4893,
+          "packetsLost": 0,
+          "bytesReceived": 377379,
+          "jitter": 0.015,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861246411.746
+        },
+        "video": {
+          "packetsReceived": 16028,
+          "packetsLost": 0,
+          "bytesReceived": 16939309,
+          "jitter": 0.012,
+          "framesDecoded": 1463,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861246411.746
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2484,
+          "bytesSent": 188121,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861246410.154
+        },
+        "video": {
+          "packetsSent": 9665,
+          "bytesSent": 10277872,
+          "framesSent": 743,
+          "framesPerSecond": 15,
+          "timestamp": 1764861246410.154
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.008,
+        "availableOutgoingBitrate": 2885122,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 10912033,
+        "bytesReceived": 49390,
+        "timestamp": 1764861246410.154
+      },
+      "transport": {
+        "bytesSent": 10912033,
+        "bytesReceived": 49390,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861246410.154
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861247407,
+      "elapsed": 48999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 4993,
+          "packetsLost": 0,
+          "bytesReceived": 385090,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861247410.991
+        },
+        "video": {
+          "packetsReceived": 16419,
+          "packetsLost": 0,
+          "bytesReceived": 17356305,
+          "jitter": 0.016,
+          "framesDecoded": 1493,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861247410.991
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2534,
+          "bytesSent": 191945,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861247409.38
+        },
+        "video": {
+          "packetsSent": 9860,
+          "bytesSent": 10485190,
+          "framesSent": 758,
+          "framesPerSecond": 16,
+          "timestamp": 1764861247409.38
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.004,
+        "availableOutgoingBitrate": 2885122,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 11132049,
+        "bytesReceived": 50486,
+        "timestamp": 1764861247409.38
+      },
+      "transport": {
+        "bytesSent": 11132049,
+        "bytesReceived": 50486,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861247409.38
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861248407,
+      "elapsed": 49999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5094,
+          "packetsLost": 0,
+          "bytesReceived": 393096,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861248410.69
+        },
+        "video": {
+          "packetsReceived": 16829,
+          "packetsLost": 0,
+          "bytesReceived": 17796047,
+          "jitter": 0.016,
+          "framesDecoded": 1523,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861248410.69
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2584,
+          "bytesSent": 195998,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861248409.338
+        },
+        "video": {
+          "packetsSent": 10064,
+          "bytesSent": 10702498,
+          "framesSent": 773,
+          "framesPerSecond": 15,
+          "timestamp": 1764861248409.338
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.004,
+        "availableOutgoingBitrate": 2885122,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 11362730,
+        "bytesReceived": 51490,
+        "timestamp": 1764861248409.338
+      },
+      "transport": {
+        "bytesSent": 11362730,
+        "bytesReceived": 51490,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861248409.338
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861249418,
+      "elapsed": 51010,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5194,
+          "packetsLost": 0,
+          "bytesReceived": 400761,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861249420.983
+        },
+        "video": {
+          "packetsReceived": 17225,
+          "packetsLost": 0,
+          "bytesReceived": 18221186,
+          "jitter": 0.013,
+          "framesDecoded": 1554,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861249420.983
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2635,
+          "bytesSent": 199688,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861249419.702
+        },
+        "video": {
+          "packetsSent": 10262,
+          "bytesSent": 10912622,
+          "framesSent": 788,
+          "framesPerSecond": 15,
+          "timestamp": 1764861249419.702
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.003,
+        "availableOutgoingBitrate": 2900340,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 11585558,
+        "bytesReceived": 52418,
+        "timestamp": 1764861249419.702
+      },
+      "transport": {
+        "bytesSent": 11585558,
+        "bytesReceived": 52418,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861249419.702
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861250420,
+      "elapsed": 52012,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5295,
+          "packetsLost": 0,
+          "bytesReceived": 408885,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861250424.223
+        },
+        "video": {
+          "packetsReceived": 17629,
+          "packetsLost": 0,
+          "bytesReceived": 18653332,
+          "jitter": 0.014,
+          "framesDecoded": 1583,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861250424.223
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2685,
+          "bytesSent": 203731,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861250422.47
+        },
+        "video": {
+          "packetsSent": 10462,
+          "bytesSent": 11126919,
+          "framesSent": 803,
+          "framesPerSecond": 15,
+          "timestamp": 1764861250422.47
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.003,
+        "availableOutgoingBitrate": 2900340,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 11813098,
+        "bytesReceived": 53396,
+        "timestamp": 1764861250422.47
+      },
+      "transport": {
+        "bytesSent": 11813098,
+        "bytesReceived": 53396,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861250422.47
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861251406,
+      "elapsed": 52998,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5395,
+          "packetsLost": 0,
+          "bytesReceived": 417044,
+          "jitter": 0.016,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861251409.344
+        },
+        "video": {
+          "packetsReceived": 18024,
+          "packetsLost": 0,
+          "bytesReceived": 19072079,
+          "jitter": 0.016,
+          "framesDecoded": 1613,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861251409.344
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2734,
+          "bytesSent": 207626,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861251408.366
+        },
+        "video": {
+          "packetsSent": 10652,
+          "bytesSent": 11328123,
+          "framesSent": 817,
+          "framesPerSecond": 14,
+          "timestamp": 1764861251408.366
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.003,
+        "availableOutgoingBitrate": 2906745,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 12026933,
+        "bytesReceived": 54324,
+        "timestamp": 1764861251408.366
+      },
+      "transport": {
+        "bytesSent": 12026933,
+        "bytesReceived": 54324,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861251408.366
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861252407,
+      "elapsed": 53999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5492,
+          "packetsLost": 0,
+          "bytesReceived": 424437,
+          "jitter": 0.017,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861252410.323
+        },
+        "video": {
+          "packetsReceived": 18423,
+          "packetsLost": 0,
+          "bytesReceived": 19497536,
+          "jitter": 0.015,
+          "framesDecoded": 1643,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861252410.323
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2784,
+          "bytesSent": 211510,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861252409.231
+        },
+        "video": {
+          "packetsSent": 10863,
+          "bytesSent": 11555101,
+          "framesSent": 833,
+          "framesPerSecond": 16,
+          "timestamp": 1764861252409.231
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.01,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 12267353,
+        "bytesReceived": 55290,
+        "timestamp": 1764861252409.231
+      },
+      "transport": {
+        "bytesSent": 12267353,
+        "bytesReceived": 55290,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861252409.231
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861253419,
+      "elapsed": 55011,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5595,
+          "packetsLost": 0,
+          "bytesReceived": 432756,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861253422.706
+        },
+        "video": {
+          "packetsReceived": 18828,
+          "packetsLost": 0,
+          "bytesReceived": 19929022,
+          "jitter": 0.016,
+          "framesDecoded": 1673,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861253422.706
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2835,
+          "bytesSent": 215587,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861253421.277
+        },
+        "video": {
+          "packetsSent": 11065,
+          "bytesSent": 11770094,
+          "framesSent": 848,
+          "framesPerSecond": 15,
+          "timestamp": 1764861253421.277
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.01,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 12495643,
+        "bytesReceived": 56268,
+        "timestamp": 1764861253421.277
+      },
+      "transport": {
+        "bytesSent": 12495643,
+        "bytesReceived": 56268,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861253421.277
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861254407,
+      "elapsed": 55999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5692,
+          "packetsLost": 0,
+          "bytesReceived": 440724,
+          "jitter": 0.015,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861254410.603
+        },
+        "video": {
+          "packetsReceived": 19227,
+          "packetsLost": 0,
+          "bytesReceived": 20354256,
+          "jitter": 0.013,
+          "framesDecoded": 1703,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861254410.603
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2884,
+          "bytesSent": 219592,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861254409.235
+        },
+        "video": {
+          "packetsSent": 11263,
+          "bytesSent": 11981675,
+          "framesSent": 863,
+          "framesPerSecond": 16,
+          "timestamp": 1764861254409.235
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.01,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 12720167,
+        "bytesReceived": 57238,
+        "timestamp": 1764861254409.235
+      },
+      "transport": {
+        "bytesSent": 12720167,
+        "bytesReceived": 57238,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861254409.235
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861255411,
+      "elapsed": 57003,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5794,
+          "packetsLost": 0,
+          "bytesReceived": 448474,
+          "jitter": 0.01,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861255416.271
+        },
+        "video": {
+          "packetsReceived": 19623,
+          "packetsLost": 0,
+          "bytesReceived": 20778955,
+          "jitter": 0.012,
+          "framesDecoded": 1733,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861255416.271
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2934,
+          "bytesSent": 223376,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861255413.165
+        },
+        "video": {
+          "packetsSent": 11465,
+          "bytesSent": 12198554,
+          "framesSent": 878,
+          "framesPerSecond": 15,
+          "timestamp": 1764861255413.165
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 12949942,
+        "bytesReceived": 58208,
+        "timestamp": 1764861255413.165
+      },
+      "transport": {
+        "bytesSent": 12949942,
+        "bytesReceived": 58208,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861255413.165
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861256407,
+      "elapsed": 57999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5895,
+          "packetsLost": 0,
+          "bytesReceived": 456174,
+          "jitter": 0.01,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861256410.104
+        },
+        "video": {
+          "packetsReceived": 20022,
+          "packetsLost": 0,
+          "bytesReceived": 21203738,
+          "jitter": 0.01,
+          "framesDecoded": 1763,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861256410.104
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 2984,
+          "bytesSent": 227139,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861256409.264
+        },
+        "video": {
+          "packetsSent": 11649,
+          "bytesSent": 12395272,
+          "framesSent": 892,
+          "framesPerSecond": 15,
+          "timestamp": 1764861256409.264
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 13159079,
+        "bytesReceived": 59136,
+        "timestamp": 1764861256409.264
+      },
+      "transport": {
+        "bytesSent": 13159079,
+        "bytesReceived": 59136,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861256409.264
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861257410,
+      "elapsed": 59002,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 5995,
+          "packetsLost": 0,
+          "bytesReceived": 464339,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861257413.114
+        },
+        "video": {
+          "packetsReceived": 20427,
+          "packetsLost": 0,
+          "bytesReceived": 21633612,
+          "jitter": 0.012,
+          "framesDecoded": 1793,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861257413.114
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3034,
+          "bytesSent": 231162,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861257411.935
+        },
+        "video": {
+          "packetsSent": 11865,
+          "bytesSent": 12624268,
+          "framesSent": 908,
+          "framesPerSecond": 15,
+          "timestamp": 1764861257411.935
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 13401756,
+        "bytesReceived": 60110,
+        "timestamp": 1764861257411.935
+      },
+      "transport": {
+        "bytesSent": 13401756,
+        "bytesReceived": 60110,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861257411.935
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861258408,
+      "elapsed": 60000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6095,
+          "packetsLost": 0,
+          "bytesReceived": 472000,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861258411.115
+        },
+        "video": {
+          "packetsReceived": 20829,
+          "packetsLost": 0,
+          "bytesReceived": 22062064,
+          "jitter": 0.009,
+          "framesDecoded": 1823,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861258411.115
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3084,
+          "bytesSent": 234969,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861258409.989
+        },
+        "video": {
+          "packetsSent": 12063,
+          "bytesSent": 12837660,
+          "framesSent": 923,
+          "framesPerSecond": 16,
+          "timestamp": 1764861258409.989
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.011,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 13627947,
+        "bytesReceived": 61072,
+        "timestamp": 1764861258409.989
+      },
+      "transport": {
+        "bytesSent": 13627947,
+        "bytesReceived": 61072,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861258409.989
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861259411,
+      "elapsed": 61003,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6196,
+          "packetsLost": 0,
+          "bytesReceived": 479968,
+          "jitter": 0.016,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861259416.581
+        },
+        "video": {
+          "packetsReceived": 21226,
+          "packetsLost": 0,
+          "bytesReceived": 22488933,
+          "jitter": 0.012,
+          "framesDecoded": 1853,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861259416.581
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3134,
+          "bytesSent": 238995,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861259412.552
+        },
+        "video": {
+          "packetsSent": 12246,
+          "bytesSent": 13036414,
+          "framesSent": 937,
+          "framesPerSecond": 14,
+          "timestamp": 1764861259412.552
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.011,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 13839247,
+        "bytesReceived": 62042,
+        "timestamp": 1764861259412.552
+      },
+      "transport": {
+        "bytesSent": 13839247,
+        "bytesReceived": 62042,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861259412.552
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861260407,
+      "elapsed": 61999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6294,
+          "packetsLost": 0,
+          "bytesReceived": 487630,
+          "jitter": 0.015,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861260410.363
+        },
+        "video": {
+          "packetsReceived": 21624,
+          "packetsLost": 0,
+          "bytesReceived": 22915042,
+          "jitter": 0.012,
+          "framesDecoded": 1883,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861260410.363
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3184,
+          "bytesSent": 242896,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861260408.842
+        },
+        "video": {
+          "packetsSent": 12442,
+          "bytesSent": 13246748,
+          "framesSent": 952,
+          "framesPerSecond": 15,
+          "timestamp": 1764861260408.842
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 14062460,
+        "bytesReceived": 63088,
+        "timestamp": 1764861260408.842
+      },
+      "transport": {
+        "bytesSent": 14062460,
+        "bytesReceived": 63088,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861260408.842
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861261407,
+      "elapsed": 62999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6396,
+          "packetsLost": 0,
+          "bytesReceived": 495503,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861261410.346
+        },
+        "video": {
+          "packetsReceived": 22018,
+          "packetsLost": 0,
+          "bytesReceived": 23335275,
+          "jitter": 0.009,
+          "framesDecoded": 1913,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861261410.346
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3234,
+          "bytesSent": 246635,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861261409.009
+        },
+        "video": {
+          "packetsSent": 12641,
+          "bytesSent": 13459312,
+          "framesSent": 967,
+          "framesPerSecond": 15,
+          "timestamp": 1764861261409.009
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 14287789,
+        "bytesReceived": 64050,
+        "timestamp": 1764861261409.009
+      },
+      "transport": {
+        "bytesSent": 14287789,
+        "bytesReceived": 64050,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861261409.009
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861262407,
+      "elapsed": 63999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6494,
+          "packetsLost": 0,
+          "bytesReceived": 503128,
+          "jitter": 0.017,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861262410.179
+        },
+        "video": {
+          "packetsReceived": 22424,
+          "packetsLost": 0,
+          "bytesReceived": 23768770,
+          "jitter": 0.011,
+          "framesDecoded": 1943,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861262410.179
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3284,
+          "bytesSent": 250554,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861262409.165
+        },
+        "video": {
+          "packetsSent": 12852,
+          "bytesSent": 13686596,
+          "framesSent": 983,
+          "framesPerSecond": 16,
+          "timestamp": 1764861262409.165
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.002,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 14528480,
+        "bytesReceived": 65090,
+        "timestamp": 1764861262409.165
+      },
+      "transport": {
+        "bytesSent": 14528480,
+        "bytesReceived": 65090,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861262409.165
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861263419,
+      "elapsed": 65011,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6594,
+          "packetsLost": 0,
+          "bytesReceived": 511407,
+          "jitter": 0.015,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861263422.462
+        },
+        "video": {
+          "packetsReceived": 22826,
+          "packetsLost": 0,
+          "bytesReceived": 24196778,
+          "jitter": 0.01,
+          "framesDecoded": 1973,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861263422.462
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3335,
+          "bytesSent": 254643,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861263421.42
+        },
+        "video": {
+          "packetsSent": 13057,
+          "bytesSent": 13904387,
+          "framesSent": 998,
+          "framesPerSecond": 15,
+          "timestamp": 1764861263421.42
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.041,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 14759682,
+        "bytesReceived": 65994,
+        "timestamp": 1764861263421.42
+      },
+      "transport": {
+        "bytesSent": 14759682,
+        "bytesReceived": 65994,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861263421.42
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861264408,
+      "elapsed": 66000,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6696,
+          "packetsLost": 0,
+          "bytesReceived": 519185,
+          "jitter": 0.014,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861264410.584
+        },
+        "video": {
+          "packetsReceived": 23228,
+          "packetsLost": 0,
+          "bytesReceived": 24624384,
+          "jitter": 0.011,
+          "framesDecoded": 2003,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861264410.584
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3384,
+          "bytesSent": 258373,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861264409.788
+        },
+        "video": {
+          "packetsSent": 13240,
+          "bytesSent": 14100618,
+          "framesSent": 1012,
+          "framesPerSecond": 15,
+          "timestamp": 1764861264409.788
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.041,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 14968157,
+        "bytesReceived": 66976,
+        "timestamp": 1764861264409.788
+      },
+      "transport": {
+        "bytesSent": 14968157,
+        "bytesReceived": 66976,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861264409.788
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861265420,
+      "elapsed": 67012,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6796,
+          "packetsLost": 0,
+          "bytesReceived": 527039,
+          "jitter": 0.012,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861265423.976
+        },
+        "video": {
+          "packetsReceived": 23630,
+          "packetsLost": 0,
+          "bytesReceived": 25053675,
+          "jitter": 0.012,
+          "framesDecoded": 2033,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861265423.976
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3435,
+          "bytesSent": 262386,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861265422.473
+        },
+        "video": {
+          "packetsSent": 13453,
+          "bytesSent": 14328364,
+          "framesSent": 1028,
+          "framesPerSecond": 16,
+          "timestamp": 1764861265422.473
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.041,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 15209510,
+        "bytesReceived": 67938,
+        "timestamp": 1764861265422.473
+      },
+      "transport": {
+        "bytesSent": 15209510,
+        "bytesReceived": 67938,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861265422.473
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861266413,
+      "elapsed": 68005,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6892,
+          "packetsLost": 0,
+          "bytesReceived": 534533,
+          "jitter": 0.015,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861266417.104
+        },
+        "video": {
+          "packetsReceived": 23994,
+          "packetsLost": 0,
+          "bytesReceived": 25442309,
+          "jitter": 0.011,
+          "framesDecoded": 2063,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861266417.104
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3484,
+          "bytesSent": 266096,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861266414.693
+        },
+        "video": {
+          "packetsSent": 13635,
+          "bytesSent": 14522070,
+          "framesSent": 1042,
+          "framesPerSecond": 14,
+          "timestamp": 1764861266414.693
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.021,
+        "availableOutgoingBitrate": 2918352,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 15415250,
+        "bytesReceived": 68846,
+        "timestamp": 1764861266414.693
+      },
+      "transport": {
+        "bytesSent": 15415250,
+        "bytesReceived": 68846,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861266414.693
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861267407,
+      "elapsed": 68999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 6994,
+          "packetsLost": 0,
+          "bytesReceived": 542348,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861267410.062
+        },
+        "video": {
+          "packetsReceived": 24391,
+          "packetsLost": 0,
+          "bytesReceived": 25867703,
+          "jitter": 0.016,
+          "framesDecoded": 2092,
+          "framesDropped": 0,
+          "framesPerSecond": 14.5,
+          "timestamp": 1764861267410.062
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3534,
+          "bytesSent": 269678,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861267408.873
+        },
+        "video": {
+          "packetsSent": 13814,
+          "bytesSent": 14712818,
+          "framesSent": 1057,
+          "framesPerSecond": 15,
+          "timestamp": 1764861267408.873
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.021,
+        "availableOutgoingBitrate": 1523436,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 15626425,
+        "bytesReceived": 69908,
+        "timestamp": 1764861267408.873
+      },
+      "transport": {
+        "bytesSent": 15626425,
+        "bytesReceived": 69908,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861267408.873
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861268407,
+      "elapsed": 69999,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 7094,
+          "packetsLost": 0,
+          "bytesReceived": 550347,
+          "jitter": 0.011,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861268409.319
+        },
+        "video": {
+          "packetsReceived": 24822,
+          "packetsLost": 0,
+          "bytesReceived": 26330427,
+          "jitter": 0.016,
+          "framesDecoded": 2122,
+          "framesDropped": 0,
+          "framesPerSecond": 15,
+          "timestamp": 1764861268409.319
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3584,
+          "bytesSent": 273647,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861268408.576
+        },
+        "video": {
+          "packetsSent": 13976,
+          "bytesSent": 14885230,
+          "framesSent": 1072,
+          "framesPerSecond": 15,
+          "timestamp": 1764861268408.576
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.003,
+        "availableOutgoingBitrate": 1560963,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 15802183,
+        "bytesReceived": 70854,
+        "timestamp": 1764861268408.576
+      },
+      "transport": {
+        "bytesSent": 15802183,
+        "bytesReceived": 70854,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861268408.576
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861270798,
+      "elapsed": 72390,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 7330,
+          "packetsLost": 0,
+          "bytesReceived": 568228,
+          "jitter": 0.018,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861270801.677
+        },
+        "video": {
+          "packetsReceived": 25619,
+          "packetsLost": 0,
+          "bytesReceived": 27177096,
+          "jitter": 0.037,
+          "framesDecoded": 2182,
+          "framesDropped": 0,
+          "framesPerSecond": 10.5,
+          "timestamp": 1764861270801.677
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3704,
+          "bytesSent": 283444,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861270800.289
+        },
+        "video": {
+          "packetsSent": 14325,
+          "bytesSent": 15250142,
+          "framesSent": 1108,
+          "framesPerSecond": 15,
+          "timestamp": 1764861270800.289
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.003,
+        "availableOutgoingBitrate": 1093221,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 16194038,
+        "bytesReceived": 72878,
+        "timestamp": 1764861270800.289
+      },
+      "transport": {
+        "bytesSent": 16194038,
+        "bytesReceived": 72878,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861270800.289
+      },
+      "consumers": 2
+    },
+    {
+      "timestamp": 1764861271415,
+      "elapsed": 73007,
+      "inbound": {
+        "audio": {
+          "packetsReceived": 7394,
+          "packetsLost": 0,
+          "bytesReceived": 573036,
+          "jitter": 0.013,
+          "framesDecoded": 0,
+          "framesDropped": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861271418.612
+        },
+        "video": {
+          "packetsReceived": 25892,
+          "packetsLost": 0,
+          "bytesReceived": 27468150,
+          "jitter": 0.045,
+          "framesDecoded": 2203,
+          "framesDropped": 0,
+          "framesPerSecond": 14,
+          "timestamp": 1764861271418.612
+        }
+      },
+      "outbound": {
+        "audio": {
+          "packetsSent": 3735,
+          "bytesSent": 285919,
+          "framesSent": 0,
+          "framesPerSecond": 0,
+          "timestamp": 1764861271417.366
+        },
+        "video": {
+          "packetsSent": 14385,
+          "bytesSent": 15311582,
+          "framesSent": 1116,
+          "framesPerSecond": 14,
+          "timestamp": 1764861271417.366
+        }
+      },
+      "candidate": {
+        "currentRoundTripTime": 0.262,
+        "availableOutgoingBitrate": 973183,
+        "availableIncomingBitrate": 0,
+        "bytesSent": 16261413,
+        "bytesReceived": 73342,
+        "timestamp": 1764861271417.366
+      },
+      "transport": {
+        "bytesSent": 16261413,
+        "bytesReceived": 73342,
+        "selectedCandidatePairChanges": 1,
+        "timestamp": 1764861271417.366
+      },
+      "consumers": 2
+    }
+  ],
+  "metrics": {
+    "latency": [
+      {
+        "timestamp": 1764861199408,
+        "value": 5
+      },
+      {
+        "timestamp": 1764861200409,
+        "value": 5
+      },
+      {
+        "timestamp": 1764861201409,
+        "value": 1
+      },
+      {
+        "timestamp": 1764861202409,
+        "value": 1
+      },
+      {
+        "timestamp": 1764861203415,
+        "value": 1
+      },
+      {
+        "timestamp": 1764861204408,
+        "value": 1
+      },
+      {
+        "timestamp": 1764861205408,
+        "value": 1
+      },
+      {
+        "timestamp": 1764861206409,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861207419,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861208408,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861209409,
+        "value": 8
+      },
+      {
+        "timestamp": 1764861210408,
+        "value": 8
+      },
+      {
+        "timestamp": 1764861211409,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861212416,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861213408,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861214408,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861215417,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861216409,
+        "value": 5
+      },
+      {
+        "timestamp": 1764861217407,
+        "value": 5
+      },
+      {
+        "timestamp": 1764861218409,
+        "value": 5
+      },
+      {
+        "timestamp": 1764861219411,
+        "value": 6
+      },
+      {
+        "timestamp": 1764861220407,
+        "value": 6
+      },
+      {
+        "timestamp": 1764861221413,
+        "value": 9
+      },
+      {
+        "timestamp": 1764861222407,
+        "value": 9
+      },
+      {
+        "timestamp": 1764861223410,
+        "value": 9
+      },
+      {
+        "timestamp": 1764861224423,
+        "value": 1
+      },
+      {
+        "timestamp": 1764861225408,
+        "value": 1
+      },
+      {
+        "timestamp": 1764861226419,
+        "value": 1
+      },
+      {
+        "timestamp": 1764861227407,
+        "value": 6
+      },
+      {
+        "timestamp": 1764861228408,
+        "value": 6
+      },
+      {
+        "timestamp": 1764861229406,
+        "value": 6
+      },
+      {
+        "timestamp": 1764861230408,
+        "value": 6
+      },
+      {
+        "timestamp": 1764861231407,
+        "value": 6
+      },
+      {
+        "timestamp": 1764861232407,
+        "value": 9
+      },
+      {
+        "timestamp": 1764861233419,
+        "value": 9
+      },
+      {
+        "timestamp": 1764861234407,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861235408,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861236407,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861237407,
+        "value": 8
+      },
+      {
+        "timestamp": 1764861238407,
+        "value": 8
+      },
+      {
+        "timestamp": 1764861239407,
+        "value": 5
+      },
+      {
+        "timestamp": 1764861240407,
+        "value": 5
+      },
+      {
+        "timestamp": 1764861241407,
+        "value": 5
+      },
+      {
+        "timestamp": 1764861242411,
+        "value": 18
+      },
+      {
+        "timestamp": 1764861243407,
+        "value": 18
+      },
+      {
+        "timestamp": 1764861244407,
+        "value": 8
+      },
+      {
+        "timestamp": 1764861245407,
+        "value": 8
+      },
+      {
+        "timestamp": 1764861246408,
+        "value": 8
+      },
+      {
+        "timestamp": 1764861247407,
+        "value": 4
+      },
+      {
+        "timestamp": 1764861248407,
+        "value": 4
+      },
+      {
+        "timestamp": 1764861249418,
+        "value": 3
+      },
+      {
+        "timestamp": 1764861250420,
+        "value": 3
+      },
+      {
+        "timestamp": 1764861251406,
+        "value": 3
+      },
+      {
+        "timestamp": 1764861252407,
+        "value": 10
+      },
+      {
+        "timestamp": 1764861253419,
+        "value": 10
+      },
+      {
+        "timestamp": 1764861254407,
+        "value": 10
+      },
+      {
+        "timestamp": 1764861255411,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861256407,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861257410,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861258408,
+        "value": 11
+      },
+      {
+        "timestamp": 1764861259411,
+        "value": 11
+      },
+      {
+        "timestamp": 1764861260407,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861261407,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861262407,
+        "value": 2
+      },
+      {
+        "timestamp": 1764861263419,
+        "value": 41
+      },
+      {
+        "timestamp": 1764861264408,
+        "value": 41
+      },
+      {
+        "timestamp": 1764861265420,
+        "value": 41
+      },
+      {
+        "timestamp": 1764861266413,
+        "value": 21
+      },
+      {
+        "timestamp": 1764861267407,
+        "value": 21
+      },
+      {
+        "timestamp": 1764861268407,
+        "value": 3
+      },
+      {
+        "timestamp": 1764861270798,
+        "value": 3
+      },
+      {
+        "timestamp": 1764861271415,
+        "value": 262
+      }
+    ],
+    "jitter": [
+      {
+        "timestamp": 1764861199408,
+        "value": 19
+      },
+      {
+        "timestamp": 1764861200409,
+        "value": 25
+      },
+      {
+        "timestamp": 1764861201409,
+        "value": 26
+      },
+      {
+        "timestamp": 1764861202409,
+        "value": 20
+      },
+      {
+        "timestamp": 1764861203415,
+        "value": 19
+      },
+      {
+        "timestamp": 1764861204408,
+        "value": 13
+      },
+      {
+        "timestamp": 1764861205408,
+        "value": 12
+      },
+      {
+        "timestamp": 1764861206409,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861207419,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861208408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861209409,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861210408,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861211409,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861212416,
+        "value": 18
+      },
+      {
+        "timestamp": 1764861213408,
+        "value": 19
+      },
+      {
+        "timestamp": 1764861214408,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861215417,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861216409,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861217407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861218409,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861219411,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861220407,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861221413,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861222407,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861223410,
+        "value": 18
+      },
+      {
+        "timestamp": 1764861224423,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861225408,
+        "value": 10
+      },
+      {
+        "timestamp": 1764861226419,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861227407,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861228408,
+        "value": 28
+      },
+      {
+        "timestamp": 1764861229406,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861230408,
+        "value": 19
+      },
+      {
+        "timestamp": 1764861231407,
+        "value": 18
+      },
+      {
+        "timestamp": 1764861232407,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861233419,
+        "value": 18
+      },
+      {
+        "timestamp": 1764861234407,
+        "value": 18
+      },
+      {
+        "timestamp": 1764861235408,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861236407,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861237407,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861238407,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861239407,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861240407,
+        "value": 13
+      },
+      {
+        "timestamp": 1764861241407,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861242411,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861243407,
+        "value": 20
+      },
+      {
+        "timestamp": 1764861244407,
+        "value": 17
+      },
+      {
+        "timestamp": 1764861245407,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861246408,
+        "value": 12
+      },
+      {
+        "timestamp": 1764861247407,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861248407,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861249418,
+        "value": 13
+      },
+      {
+        "timestamp": 1764861250420,
+        "value": 14
+      },
+      {
+        "timestamp": 1764861251406,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861252407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861253419,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861254407,
+        "value": 13
+      },
+      {
+        "timestamp": 1764861255411,
+        "value": 12
+      },
+      {
+        "timestamp": 1764861256407,
+        "value": 10
+      },
+      {
+        "timestamp": 1764861257410,
+        "value": 12
+      },
+      {
+        "timestamp": 1764861258408,
+        "value": 9
+      },
+      {
+        "timestamp": 1764861259411,
+        "value": 12
+      },
+      {
+        "timestamp": 1764861260407,
+        "value": 12
+      },
+      {
+        "timestamp": 1764861261407,
+        "value": 9
+      },
+      {
+        "timestamp": 1764861262407,
+        "value": 11
+      },
+      {
+        "timestamp": 1764861263419,
+        "value": 10
+      },
+      {
+        "timestamp": 1764861264408,
+        "value": 11
+      },
+      {
+        "timestamp": 1764861265420,
+        "value": 12
+      },
+      {
+        "timestamp": 1764861266413,
+        "value": 11
+      },
+      {
+        "timestamp": 1764861267407,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861268407,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861270798,
+        "value": 37
+      },
+      {
+        "timestamp": 1764861271415,
+        "value": 45
+      }
+    ],
+    "packetLoss": [
+      {
+        "timestamp": 1764861199408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861200409,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861201409,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861202409,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861203415,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861204408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861205408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861206409,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861207419,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861208408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861209409,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861210408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861211409,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861212416,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861213408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861214408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861215417,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861216409,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861217407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861218409,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861219411,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861220407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861221413,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861222407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861223410,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861224423,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861225408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861226419,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861227407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861228408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861229406,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861230408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861231407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861232407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861233419,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861234407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861235408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861236407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861237407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861238407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861239407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861240407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861241407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861242411,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861243407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861244407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861245407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861246408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861247407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861248407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861249418,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861250420,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861251406,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861252407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861253419,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861254407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861255411,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861256407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861257410,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861258408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861259411,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861260407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861261407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861262407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861263419,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861264408,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861265420,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861266413,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861267407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861268407,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861270798,
+        "value": 0
+      },
+      {
+        "timestamp": 1764861271415,
+        "value": 0
+      }
+    ],
+    "bitrate": [
+      {
+        "timestamp": 1764861200409,
+        "value": 866.7092907092908
+      },
+      {
+        "timestamp": 1764861201409,
+        "value": 1221.344
+      },
+      {
+        "timestamp": 1764861202409,
+        "value": 1082.776
+      },
+      {
+        "timestamp": 1764861203415,
+        "value": 1202.4333996023856
+      },
+      {
+        "timestamp": 1764861204408,
+        "value": 1285.9214501510573
+      },
+      {
+        "timestamp": 1764861205408,
+        "value": 1381.984
+      },
+      {
+        "timestamp": 1764861206409,
+        "value": 1450.4935064935066
+      },
+      {
+        "timestamp": 1764861207419,
+        "value": 1580.8871287128713
+      },
+      {
+        "timestamp": 1764861208408,
+        "value": 1469.330637007078
+      },
+      {
+        "timestamp": 1764861209409,
+        "value": 1666.1098901098903
+      },
+      {
+        "timestamp": 1764861210408,
+        "value": 2094.7587587587586
+      },
+      {
+        "timestamp": 1764861211409,
+        "value": 2063.128871128871
+      },
+      {
+        "timestamp": 1764861212416,
+        "value": 2502.6256206554126
+      },
+      {
+        "timestamp": 1764861213408,
+        "value": 2273.064516129032
+      },
+      {
+        "timestamp": 1764861214408,
+        "value": 2645.112
+      },
+      {
+        "timestamp": 1764861215417,
+        "value": 3097.3240832507436
+      },
+      {
+        "timestamp": 1764861216409,
+        "value": 2900.0887096774195
+      },
+      {
+        "timestamp": 1764861217407,
+        "value": 3278.108216432866
+      },
+      {
+        "timestamp": 1764861218409,
+        "value": 3419.193612774451
+      },
+      {
+        "timestamp": 1764861219411,
+        "value": 3461.429141716567
+      },
+      {
+        "timestamp": 1764861220407,
+        "value": 3684.6827309236946
+      },
+      {
+        "timestamp": 1764861221413,
+        "value": 3147.888667992048
+      },
+      {
+        "timestamp": 1764861222407,
+        "value": 3715.275653923541
+      },
+      {
+        "timestamp": 1764861223410,
+        "value": 3430.4845463609176
+      },
+      {
+        "timestamp": 1764861224423,
+        "value": 3389.709772951629
+      },
+      {
+        "timestamp": 1764861225408,
+        "value": 3450.079187817259
+      },
+      {
+        "timestamp": 1764861226419,
+        "value": 3395.6874381800203
+      },
+      {
+        "timestamp": 1764861227407,
+        "value": 2785.327935222672
+      },
+      {
+        "timestamp": 1764861228408,
+        "value": 3603.62037962038
+      },
+      {
+        "timestamp": 1764861229406,
+        "value": 3659.486973947896
+      },
+      {
+        "timestamp": 1764861230408,
+        "value": 3629.357285429142
+      },
+      {
+        "timestamp": 1764861231407,
+        "value": 3424.088088088088
+      },
+      {
+        "timestamp": 1764861232407,
+        "value": 3564.936
+      },
+      {
+        "timestamp": 1764861233419,
+        "value": 3739.7312252964425
+      },
+      {
+        "timestamp": 1764861234407,
+        "value": 3350.5263157894738
+      },
+      {
+        "timestamp": 1764861235408,
+        "value": 3366.0579420579425
+      },
+      {
+        "timestamp": 1764861236407,
+        "value": 3545.3373373373374
+      },
+      {
+        "timestamp": 1764861237407,
+        "value": 3589.688
+      },
+      {
+        "timestamp": 1764861238407,
+        "value": 3462.464
+      },
+      {
+        "timestamp": 1764861239407,
+        "value": 3401.384
+      },
+      {
+        "timestamp": 1764861240407,
+        "value": 3327.912
+      },
+      {
+        "timestamp": 1764861241407,
+        "value": 3414.296
+      },
+      {
+        "timestamp": 1764861242411,
+        "value": 3406.03984063745
+      },
+      {
+        "timestamp": 1764861243407,
+        "value": 3427.4779116465866
+      },
+      {
+        "timestamp": 1764861244407,
+        "value": 3410.6
+      },
+      {
+        "timestamp": 1764861245407,
+        "value": 3422.952
+      },
+      {
+        "timestamp": 1764861246408,
+        "value": 3422.825174825175
+      },
+      {
+        "timestamp": 1764861247407,
+        "value": 3339.3073073073074
+      },
+      {
+        "timestamp": 1764861248407,
+        "value": 3517.936
+      },
+      {
+        "timestamp": 1764861249418,
+        "value": 3364.1068249258165
+      },
+      {
+        "timestamp": 1764861250420,
+        "value": 3450.2674650698605
+      },
+      {
+        "timestamp": 1764861251406,
+        "value": 3397.5415821501015
+      },
+      {
+        "timestamp": 1764861252407,
+        "value": 3400.2557442557445
+      },
+      {
+        "timestamp": 1764861253419,
+        "value": 3410.9565217391305
+      },
+      {
+        "timestamp": 1764861254407,
+        "value": 3443.1902834008097
+      },
+      {
+        "timestamp": 1764861255411,
+        "value": 3384.0557768924305
+      },
+      {
+        "timestamp": 1764861256407,
+        "value": 3411.9116465863453
+      },
+      {
+        "timestamp": 1764861257410,
+        "value": 3428.7058823529414
+      },
+      {
+        "timestamp": 1764861258408,
+        "value": 3434.4849699398796
+      },
+      {
+        "timestamp": 1764861259411,
+        "value": 3404.7377866400802
+      },
+      {
+        "timestamp": 1764861260407,
+        "value": 3422.5622489959837
+      },
+      {
+        "timestamp": 1764861261407,
+        "value": 3361.864
+      },
+      {
+        "timestamp": 1764861262407,
+        "value": 3467.96
+      },
+      {
+        "timestamp": 1764861263419,
+        "value": 3383.4624505928855
+      },
+      {
+        "timestamp": 1764861264408,
+        "value": 3458.895854398382
+      },
+      {
+        "timestamp": 1764861265420,
+        "value": 3393.604743083004
+      },
+      {
+        "timestamp": 1764861266413,
+        "value": 3130.9889224572003
+      },
+      {
+        "timestamp": 1764861267407,
+        "value": 3423.6941649899395
+      },
+      {
+        "timestamp": 1764861268407,
+        "value": 3701.792
+      },
+      {
+        "timestamp": 1764861270798,
+        "value": 2832.853199498118
+      },
+      {
+        "timestamp": 1764861271415,
+        "value": 3773.7957860615884
+      }
+    ],
+    "frameRate": [
+      {
+        "timestamp": 1764861199408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861200409,
+        "value": 13
+      },
+      {
+        "timestamp": 1764861201409,
+        "value": 16
+      },
+      {
+        "timestamp": 1764861202409,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861203415,
+        "value": 15.5
+      },
+      {
+        "timestamp": 1764861204408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861205408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861206409,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861207419,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861208408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861209409,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861210408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861211409,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861212416,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861213408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861214408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861215417,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861216409,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861217407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861218409,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861219411,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861220407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861221413,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861222407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861223410,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861224423,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861225408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861226419,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861227407,
+        "value": 13
+      },
+      {
+        "timestamp": 1764861228408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861229406,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861230408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861231407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861232407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861233419,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861234407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861235408,
+        "value": 15.5
+      },
+      {
+        "timestamp": 1764861236407,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861237407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861238407,
+        "value": 15.5
+      },
+      {
+        "timestamp": 1764861239407,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861240407,
+        "value": 15.5
+      },
+      {
+        "timestamp": 1764861241407,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861242411,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861243407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861244407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861245407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861246408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861247407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861248407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861249418,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861250420,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861251406,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861252407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861253419,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861254407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861255411,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861256407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861257410,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861258408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861259411,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861260407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861261407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861262407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861263419,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861264408,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861265420,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861266413,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861267407,
+        "value": 14.5
+      },
+      {
+        "timestamp": 1764861268407,
+        "value": 15
+      },
+      {
+        "timestamp": 1764861270798,
+        "value": 10.5
+      },
+      {
+        "timestamp": 1764861271415,
+        "value": 14
+      }
+    ],
+    "cpu": []
+  },
+  "summary": {
+    "sessionId": "e2ee-test-4448cd66-4fe0-4747-bc50-2b913805ad27",
+    "duration": 73462,
+    "samples": 72,
+    "consumers": 2,
+    "latency": {
+      "mean": "11.72",
+      "p50": "6.00",
+      "p95": "41.00",
+      "p99": "262.00",
+      "min": "1.00",
+      "max": "262.00",
+      "count": 72
+    },
+    "jitter": {
+      "mean": "16.10",
+      "p50": "16.00",
+      "p95": "26.00",
+      "p99": "45.00",
+      "min": "9.00",
+      "max": "45.00",
+      "count": 72
+    },
+    "packetLoss": {
+      "mean": "0.00",
+      "p50": "0.00",
+      "p95": "0.00",
+      "p99": "0.00",
+      "min": "0.00",
+      "max": "0.00",
+      "count": 72
+    },
+    "bitrate": {
+      "mean": "3040.14",
+      "p50": "3401.38",
+      "p95": "3701.79",
+      "p99": "3773.80",
+      "min": "866.71",
+      "max": "3773.80",
+      "count": 71
+    },
+    "frameRate": {
+      "mean": "14.84",
+      "p50": "15.00",
+      "p95": "15.50",
+      "p99": "16.00",
+      "min": "10.50",
+      "max": "16.00",
+      "count": 72
+    }
+  }
+}
